@@ -7,6 +7,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v3
 
@@ -15,10 +19,10 @@ jobs:
         with:
           root_file: main.tex
 
-      - name: Commit PDF
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add main.pdf
-          git commit -m "Auto-compile PDF" || echo "No changes"
-          git push
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
