@@ -17,6 +17,7 @@
 \usepackage{multicol}
 \usepackage{parskip}
 \usepackage{etoolbox}
+\newcommand{\footstar}[1]{$^*$ \footnotetext{$^*$#1}}
 
 \geometry{
   left   = 1.8cm,
@@ -32,6 +33,7 @@
 \definecolor{tagtxt}{HTML}{FFFFFF}            
 \definecolor{lightgray}{gray}{0.55}
 \let\oldbf\textbf
+
 \renewcommand{\textbf}[1]{{\color{accentblue}\oldbf{#1}}}
 
 \hypersetup{
@@ -42,7 +44,6 @@
   pdftitle   = {Curriculum Vitae}
 }
 
-% ── Section titles ───────────────────────────────────────────
 \titleformat{\section}
   {\large\bfseries\color{black}}
   {}{0pt}{}
@@ -50,19 +51,17 @@
 
 \titlespacing{\section}{0pt}{15pt}{4pt}
 
-% ── Tag/badge helper ───────────────────────────────────────
 \newtcbox{\cvtag}{
   nobeforeafter,
   colback  = tagbg,
   colframe = tagbg,
   boxrule  = 0pt,
   arc      = 3pt,
-  top      = 1.5pt, bottom = 1.5pt,
-  left     = 5pt,   right  = 5pt,
+  top      = 0pt, bottom = 0pt,
+  left     = 5pt, right  = 5pt,
   fontupper = \footnotesize\color{tagtxt}\bfseries
 }
 
-% ── Conference badge ─────────────────────────
 \newtcbox{\confbadge}{
   nobeforeafter,
   colback  = tagbg,
@@ -74,27 +73,36 @@
   fontupper = \scriptsize\color{tagtxt}\bfseries
 }
 
-% ── Publication entry helper ─────────────────────────────────
-%  \pubentry{Title}{Authors}{Venue Badge}{Location/Year}
+\newcommand{\me}{\textbf{Sourojit Ghosh}}
+
 \newcommand{\pubentry}[4]{%
   \noindent
   \begin{minipage}[t]{0.73\linewidth}
-    \textbf{#1}\\
+    \large{#1}\\
     \textit{\footnotesize #2}
   \end{minipage}%
   \hfill
   \begin{minipage}[t]{0.24\linewidth}\raggedleft
-    \raisebox{-10pt}{\confbadge{#3}}\\[2pt]
+    \raisebox{-5pt}{\confbadge{#3}}\\[2pt]
     \textcolor{lightgray}{\footnotesize #4}
   \end{minipage}
   \vspace{4pt}
 }
 
-% ── Work / Academic experience entry ─────────────────────────
-%  \expentry{Organization}{Location}{Role}{Dates}{Bullets}
+\newtcbox{\sectionpill}{
+  nobeforeafter,
+  colback  = tagbg,
+  colframe = tagbg,
+  boxrule  = 0pt,
+  arc      = 3pt,
+  top      = 2pt, bottom = 2pt,
+  left     = 8pt, right  = 8pt,
+  fontupper = \small\color{tagtxt}\bfseries
+}
+
 \newcommand{\expentry}[5]{%
-  \noindent\textbf{#1}\hfill\textcolor{accentblue}{\small\textit{#2}}\par
-  \noindent\textit{#3}\hfill\textcolor{accentblue}{\small\textit{#4}}\par
+  \noindent\textbf{#1}\hfill\textcolor{tagbg}{\small\textit{#2}}\par
+  \noindent\textit{#3}\hfill\textcolor{tagbg}{\small\textit{#4}}\par
   \begin{itemize}[leftmargin=1.5em, itemsep=1pt, topsep=2pt, parsep=0pt]
     #5
   \end{itemize}%
@@ -109,56 +117,63 @@
 
 \newcommand{\cvrow}[3]{%
   \noindent
-  \begin{minipage}[t]{0.58\linewidth}
-    \hangindent=2.4em\hangafter=1
-    \makebox[2.5em][l]{\small #1}#2
+  \begin{minipage}[t]{0.70\linewidth}
+    \hangindent=3.05em\hangafter=1
+    \raisebox{-2pt}{\confbadge{#1}}\hspace{4pt}#2
   \end{minipage}%
   \hfill
-  \begin{minipage}[t]{0.38\linewidth}\raggedleft
-    \mbox{\textcolor{accentblue}{\textit{\small #3}}}
+  \begin{minipage}[t]{0.30\linewidth}\raggedleft
+    \mbox{\textcolor{tagbg}{\textit{\small #3}}}
   \end{minipage}\par
 }
 
+\newcommand{\cvrowdate}[3]{%
+  \noindent
+  \begin{minipage}[t]{0.63\linewidth}
+    \hangindent=7em\hangafter=1
+    \raisebox{-1pt}{\confbadge{#1}}\hspace{4pt}#2
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}\raggedleft
+    \mbox{\textcolor{tagbg}{\textit{\small #3}}}
+  \end{minipage}\par
+}
 
 \begin{document}
 \pagestyle{empty}
 
-%% ============================================================
-%%  HEADER
-%% ============================================================
 \begin{center}
   {\LARGE\bfseries Sourojit Ghosh}\\[4pt]
   {\color{accentblue}\textbf{Assistant Professor at The University of North Carolina at Chapel Hill}}\\[2pt]
   {\small Faculty Researcher at the Center for Information, Technology, and Public Life (CITAP) }\\[6pt]
 
-  % Contact row — edit icons / URLs as needed
   \small
   \faEnvelope\ \href{mailto:sourojitg@gmail.com}{Email}\quad
   \faGlobe\ \href{https://sourojitghosh.github.io/}{Personal Website} \quad
   \faGlobe\ \href{https://sourojitghosh.github.io/unseen-lab/}{Lab Website} \\[5pt]
-  % Research area tags
-  \cvtag{Responsible AI}
-  \cvtag{Machine Learning}
-  \cvtag{AI Policy}
-  \cvtag{AI for Science}
-  \cvtag{AI Governance}
+    \cvtag{\strut AI for Social Good}
+    \cvtag{\strut Human Centered AI}
+    \cvtag{\strut AI Policy}
+    \cvtag{\strut AI Ethics}
+    \cvtag{\strut AI Education}
 \end{center}
 
 \vspace{6pt}
 
 \section{Education}
 
-\noindent\textbf{University of Washington}\hfill\textcolor{uwpurple}{\textit{Seattle, WA}}\par
-\noindent\textit{Ph.D.,\ M.S.\ in Human-Centered Design and Engineering (Advised by Dr.\ Cecilia Aragon)}\hfill\textcolor{uwpurple}{\textit{2020--2026}}\par
+\noindent\large{University of Washington}\hfill\textcolor{uwpurple}{\textit{Seattle, WA}}\par
+\noindent\textit{Ph.D.,\ M.S.\ in Human-Centered Design and Engineering}\hfill\textcolor{uwpurple}{\textit{2020--2026}}\\
+\textit{(Advised by Dr.\ Cecilia Aragon)}\par
 
 \vspace{6pt}
 
-\noindent\textbf{University of Minnesota, Twin Cities}\hfill\textcolor{umnmaroon}{\textit{Minneapolis, MN}}\par
+\noindent\large{University of Minnesota, Twin Cities}\hfill\textcolor{umnmaroon}{\textit{Minneapolis, MN}}\par
 \noindent\textit{B.Sc.\ in Computer Science, Minor in Creative Writing}\hfill\textcolor{umnmaroon}{\textit{2016--2020}}\par
 
 \section{Doctoral Thesis}
 
-\noindent\textbf{Algorithmic Fairness in the Real World: Challenges and Considerations}\hfill\textcolor{accentblue}{\textit{Defended June 2023}}\par
+\noindent\large{Algorithmic Fairness in the Real World: Challenges and Considerations}\hfill\textcolor{uwpurple}{\textit{Defended June 2023}}\par
 
 \begin{itemize}[leftmargin=1.5em, itemsep=2pt, topsep=4pt]
   \item Social bias in machine learning algorithms is a widespread problem that has been addressed
@@ -172,198 +187,165 @@
 
 \section{Publications}
 
-\underline{\textit{\textbf{Peer-Reviewed Publications}}}
+\noindent\sectionpill{Peer-Reviewed Publications}
 
 \pubentry
-  {Documenting Patterns of Exoticism of Marginalized Populations within Text-to-Image Generators}
-  {Sourojit Ghosh, Sanjana Gautam, Pranav Venkit, \textbf{Avijit Ghosh}}
+  {What if AI systems weren't Chatbots?}
+  {\me, Pranav Narayanan Venkit*, Sanjana Gautam*, and Avijit Ghosh}
+  {FAccT '26}{Montreal, Canada}
+ 
+\pubentry
+  {Compounding Disadvantage: Auditing Intersectional Bias in LLM-Generated Explanations Across Indian and American STEM Education}
+  {Amogh Gupta, Niharika Patil, \me, and Snehalkumar Gaikwad}
+  {FAccT '26}{Montreal, Canada}
+ 
+\pubentry
+  {\href{https://ojs.aaai.org/index.php/AIES/article/view/36614}{Documenting Patterns of Exoticism of Marginalized Populations \newline within Text-to-Image Generators}}
+  {\me, Sanjana Gautam*, Pranav Narayanan Venkit*, Avijit Ghosh}
   {AIES '25}{Madrid, Spain}
 
 \pubentry
-  {Stop treating `AGI' as the north-star goal of AI research}
-  {B. Blili-Hamelin, C. Graziul, L. Hancox-Li, H. Hazan, E. El-Mhamdi, \textbf{Avijit Ghosh},
-   K. Heller, J. Metcalf, F. Murai, E. Salvaggio, A. Smart, T. Snider, M. Tighanimine,
-   T. Ringer, M. Mitchell, S. Dori-Hacohen}
-  {ICML '25}{Vancouver, Canada}
+  {\href{https://ojs.aaai.org/index.php/AIES/article/view/36750}{Bias is a Math Problem, AI Bias is a Technical Problem: 10-year Literature Review of AI/LLM Bias Research Reveals Narrow [Gender-Centric] Conceptions of `Bias', and Academia-Industry Gap}}
+  {\me\footstar{Equal Contribution} and Kyra Wilson*}
+  {AIES '25}{Madrid, Spain}
 
 \pubentry
-  {In-House Evaluation Is Not Enough: Towards Robust Third-Party Flaw Disclosure for General-Purpose AI}
-  {S. Longpre, K. Klyman, R. Appel, \textit{et al.}, \textbf{Avijit Ghosh}, \textit{et al.}}
-  {ICML '25}{Vancouver, Canada}
+    {\href{https://peer.asee.org/empowering-engineering-graduates-to-contribute-towards-designing-safer-generative-ai-tools-through-an-ethics-course}{Empowering Engineering Graduates to Contribute towards  Designing Safer Generative AI Tools through an Ethics Course}}
+    {\me, and Sarah Coppola}
+    {ASEE '25}{Montreal, Canada}
 
 \pubentry
-  {``It's not a representation of me'': Examining Accent Bias and Digital Exclusion in Synthetic AI Voice Services}
-  {Shira Michel, Sufi Kaur, Sarah Elizabeth Gillespie, Jeffrey Gleason, Christo Wilson, \textbf{Avijit Ghosh}}
-  {FAccT '25}{Athens, Greece}
+    {\href{https://peer.asee.org/integrating-theory-and-practice-into-a-design-foundations-course}{Integrating Theory and Practice into a Design Foundations Course}}
+    {\me, Arpita Bhattacharya, and Sarah Coppola}
+    {ASEE '25}{Montreal, Canada}
 
 \pubentry
-  {Quantifying Misalignment Between Agents: Towards a Sociotechnical Understanding of Alignment}
-  {Aidan Kierans, \textbf{Avijit Ghosh}, Hananel Hazan, Shiri Dori-Hacohen}
-  {AAAI '25}{Philadelphia, USA}
+    {\href{https://dl.acm.org/doi/10.1145/3706598.3713666}{``They’ve Over-Emphasized That One Search”: Controlling Unwanted Content on TikTok's For You Page}}
+    {Julie Vera*, and \me*}
+    {CHI '25}{Yokohama, Japan}
+    
+\pubentry
+  {\href{https://ojs.aaai.org/index.php/AIES/article/view/31652}{Interpretations, Representations, and Stereotypes of Caste within \newline Text-to-Image Generators}}
+  {\me}
+  {AIES '24}{San Jose, California}
 
 \pubentry
-  {Coordinated Disclosure for AI: Beyond Security Vulnerabilities}
-  {Sven Cattell, \textbf{Avijit Ghosh}, Lucie-Aim\'{e}e Kaff\'{e}}
-  {AIES '24}{San Jose, USA}
+  {\href{https://ojs.aaai.org/index.php/AIES/article/view/31650}{``I don't see myself represented here at all": User Experiences of Stable Diffusion Outputs Containing Representational Harms across Gender Identities and Nationalities}}
+  {\me, Pranav Narayanan Venkit*, Sanjana Gautam*, Shomir Wilson, and Aylin Caliskan}
+  {AIES '24}{San Jose, California}
 
 \pubentry
-  {Perceptions in pixels: analyzing perceived gender and skin tone in real-world image search results}
-  {Jeffrey Gleason, \textbf{Avijit Ghosh}, Christo Wilson}
-  {WWW '24}{Singapore}
+  {\href{https://ojs.aaai.org/index.php/AIES/article/view/31651}{Do Generative AI Models Output Harm While Representing Non-western Cultures: Evidence from a Community-Centered Approach}}
+  {\me, Nina Lutz*, and Aylin Caliskan}
+  {AIES '24}{San Jose, California}
+  
+\pubentry
+    {\href{https://peer.asee.org/chatgpt-as-a-tool-for-equitable-education-in-engineering-classes}{ChatGPT as a Tool for Equitable Education in Engineering Classes}}
+    {\me}
+    {ASEE '24}{Baltimore, Maryland}
 
 \pubentry
-  {Bound by the Bounty: Collaboratively Shaping Evaluation Processes for Queer AI Harms}
-  {N. Dennler, A. Ovalle, A. Singh, \textit{et al.}, \textbf{Avijit Ghosh}, \textit{et al.}}
+    {\href{https://peer.asee.org/reflecting-on-adapting-visual-oriented-classes-for-blind-and-low-vision-students}{Reflecting on Adapting Visual-Oriented Classes for Blind and Low-Vision Students}}
+    {\me, Kunal Mehta, Maxwell Coppock, and Sarah Coppola}
+    {ASEE '24}{Baltimore, Maryland}
+
+\pubentry
+    {\href{https://peer.asee.org/co-creating-inclusion-designing-a-living-inclusive-teaching-toolkit}{Co-Creating Inclusion: Designing a Living Inclusive Teaching Toolkit}}
+    {Mina Zavary*, and \me*}
+    {ASEE '24}{Baltimore, Maryland}
+
+\pubentry
+    {\href{https://dl.designresearchsociety.org/drs-conference-papers/drs2024/researchpapers/331/}{This Class Isn’t Designed For Me: Recognizing Ableist Trends In Design Education, And Redesigning For An Inclusive And Sustainable Future}}
+    {\me, and Sarah Coppola}
+    {DRS '24}{Boston, Massachusetts}
+
+\pubentry
+  {\href{https://aclanthology.org/2023.findings-emnlp.465/}{“Person” == Light-skinned, Western Man, and Sexualization of Women of Color: Stereotypes in Stable Diffusion}}
+  {\me, and Aylin Caliskan}
+  {EMNLP '23}{Singapore City, Singapore}
+
+\pubentry
+  {\href{http://camps.aptaracorp.com/ACM_PMS/PMS/ACM/ICER23V1/14/38bc1875-03fe-11ee-b37c-16bb50361d1f/OUT/icer23v1-14.html}{Taking Stock of Concept Inventories in Computing Education: A Systematic Literature Review}}
+  {Murtaza Ali, \me, Prerna Rao, Raveena Dhegaskar, Sophia Jawort, Alix Medler, Mengqi Shi, and Sayamindu Dasgupta}
+  {ICER '23}{Chicago, Illinois}
+
+\pubentry
+  {\href{https://dl.acm.org/doi/10.1145/3600211.3604672}{ChatGPT Perpetuates Gender Bias in Machine Translation and Ignores Non-Gendered Pronouns: Findings across Bengali and Five other Low-Resource Languages}}
+  {\me, and Aylin Caliskan}
   {AIES '23}{Montreal, Canada}
 
-\pubentry
-  {When Fair Classification Meets Noisy Protected Attributes}
-  {\textbf{Avijit Ghosh}, Pablo Kvitca, Christo Wilson}
-  {AIES '23}{Montreal, Canada}
+\vspace{10pt}
+\noindent\sectionpill{Peer-Reviewed Journals}
 
 \pubentry
-  {Queer In AI: A Case Study in Community-Led Participatory AI}
-  {Organizers of Queer In AI, \textit{et al.}, \textbf{Avijit Ghosh}, \textit{et al.}}
-  {FAccT '23}{Chicago, Illinois}
+  {\href{https://journal.transformativeworks.org/index.php/twc/article/view/2477}{Leveraging Community Support and Platform Affordances on a Path to More Active Participation: A Study of Online Fan Fiction Communities}}
+  {\me, and Cecilia Aragon}
+  {Journal}{Transformative Works and Cultures}
 
-\pubentry
-  {Subverting Fair Image Search with Generative Adversarial Perturbations}
-  {\textbf{Avijit Ghosh}, Matthew Jagielski, Christo Wilson}
-  {FAccT '22}{Seoul, South Korea}
-
-\pubentry
-  {FairCanary: Rapid Continuous Explainable Fairness}
-  {\textbf{Avijit Ghosh}*, Aalok Shanbhag*, Christo Wilson}
-  {AIES '22}{Oxford, United Kingdom}
-
-\pubentry
-  {Algorithms that ``Don't See Color'': Comparing Biases in Lookalike and Special Ad Audiences}
-  {Piotr Sapiezynski, \textbf{Avijit Ghosh}, Levi Kaplan, Alan Mislove, Aaron Rieke}
-  {AIES '22}{Oxford, United Kingdom}
-
-\pubentry
-  {When Fair Ranking Meets Uncertain Inference}
-  {\textbf{Avijit Ghosh}, Ritam Dutt, Christo Wilson}
-  {SIGIR '21}{Montreal, Canada / Virtual}
-
-\pubentry
-  {Building and Auditing Fair Algorithms: A Case Study in Candidate Screening}
-  {Christo Wilson, \textbf{Avijit Ghosh}, Shan Jiang, Alan Mislove, Lewis Baker, Janelle Szary, Kelly Trindel, Frida Polli}
-  {FAccT '21}{Toronto, Canada / Virtual}
-
-\pubentry
-  {Public Sphere 2.0: Targeted Commenting in Online News Media}
-  {Ankan Mullick, Sayan Ghosh*, Ritam Dutt*, \textbf{Avijit Ghosh}*, Abhijnan Chakrabarty}
-  {ECIR '19}{Cologne, Germany}
 
 \vspace{10pt}
-\underline{\textit{\textbf{Peer-Reviewed Journal}}}
+\noindent\sectionpill{Peer-Reviewed Workshop}
 
 \pubentry
-  {AI for Scientific Discovery is a Social Problem}
-  {Georgia Channing*, \textbf{Avijit Ghosh}*}
-  {Patterns '26}{Journal}
-
-\pubentry
-  {Open Technical Problems in Open-Weight AI Model Risk Management}
-  {S. Casper, K. O'Brien, S. Longpre, \textit{et al.}, \textbf{Avijit Ghosh}, \textit{et al.}}
-  {TMLR '26}{Journal}
-
-\pubentry
-  {Connectedness of Markets with Heterogeneous Agents and the Information Cascades}
-  {\textbf{Avijit Ghosh}, Aditya Chourasiya, Lakshay Bansal, Abhijeet Chandra}
-  {AAA '21}{Journal}
-
-\vspace{10pt}
-\underline{\textit{\textbf{Peer-Reviewed Workshop}}}
-
-\pubentry
-  {Protecting Human Cognition in the Age of AI}
-  {Anjali Singh, Karan Taneja, Zhitong Guan, \textbf{Avijit Ghosh}}
-  {Tools4Thoughts@CHI '25}{Yokohama, Japan}
+  {\href{https://sourojitghosh.github.io/publication/paper2}{Not Just Cells in a Dataset: Imagining a Human-Centered Data Science Approach to Social Recommendation Algorithms}}
+  {\me, Andrea Figueroa, Murtaza Ali, and Cecilia Aragon}
+  {GenAI@CHI '22}{ New Orleans, Louisiana}
 
 \pubentry
   {To Err is AI: A Case Study Informing LLM Flaw Reporting Practices}
-  {Sean McGregor, Allyson Ettinger, \textit{et al.}, \textbf{Avijit Ghosh}, \textit{et al.}}
+  {Sean McGregor, Allyson Ettinger, \textit{et al.}, Avijit Ghosh, \textit{et al.}}
   {IAAI@AAAI '25}{Philadelphia, USA}
 
 \pubentry
   {Can There be Art Without an Artist?}
-  {\textbf{Avijit Ghosh}, Genoveva Fossas}
+  {Avijit Ghosh, Genoveva Fossas}
   {HEGM@NeurIPS '22}{New Orleans, USA}
 
 \pubentry
   {Characterizing Intersectional Group Fairness with Worst-Case Comparisons}
-  {\textbf{Avijit Ghosh}, Lea Genuit, Mary Reagan}
+  {Avijit Ghosh, Lea Genuit, Mary Reagan}
   {AIDBEI@AAAI '21}{Vancouver, Canada / Virtual}
 
 \pubentry
   {Analyzing Political Advertisers' Use of Facebook's Targeting Features}
-  {\textbf{Avijit Ghosh}, Giridhari Venkatadri, Alan Mislove}
+  {Avijit Ghosh, Giridhari Venkatadri, Alan Mislove}
   {Conpro@S\&P '19}{San Francisco, USA}
 
 \pubentry
   {SAVITR: A System for Real-time Location Extraction from Microblogs during Emergencies}
-  {Ritam Dutt, Kaustubh Hiware, \textbf{Avijit Ghosh}, Rameshwar Bhaskaran}
+  {Ritam Dutt, Kaustubh Hiware, Avijit Ghosh, Rameshwar Bhaskaran}
   {SMERP@WWW '18}{Lyon, France}
 
 \pubentry
   {WebSelect: A Research Prototype for Optimizing Ad Exposures based on Network Structure}
-  {\textbf{Avijit Ghosh}, Agam Gupta, Divya Sharma, Uttam Sarkar}
+  {Avijit Ghosh, Agam Gupta, Divya Sharma, Uttam Sarkar}
   {WITS '19}{Dublin, Ireland}
 
 \vspace{10pt}
-\underline{\textit{\textbf{Book Chapter}}}
+\noindent\sectionpill{Book Chapters}
 
 \pubentry
-  {Evaluating the social impact of generative AI systems in systems and society}
-  {I. Solaiman, Z. Talat, W. Agnew, \textit{et al.}, \textbf{Avijit Ghosh}, \textit{et al.}}
-  {Chapter}{Oxford Handbook on Generative AI}
+  {Machine Translation, Large Language Models, and Generative AI in the University Classroom: Toward a Pedagogy of Care}
+  {\me, and Srishti Chatterjee}
+  {Chapter}{The Social Impact of\\ Automating Translation}
+
+\pubentry
+  {Misgendering and Assuming Gender in Machine Translation when Working with Low-Resource Languages}
+  {\me, and Srishti Chatterjee}
+  {Chapter}{Gendered Technology in Translation and Interpreting}
 
 \vspace{10pt}
-\underline{\textit{\textbf{Preprints and Working Manuscripts}}}
+\noindent\sectionpill{Preprints}
 
-\pubentry{Position: Agentic Systems Should be General}
-  {E. Bandel, A. Yehudai, A. Lacoste, \textbf{Avijit Ghosh}, G. Neubig, M. Mitchell, M. Shmueli-Scheuer, L. Choshen}
+\pubentry{From Melting Pots to Misrepresentations: Exploring Harms \\ in Generative AI}
+  {Sanjana Gautam*, \me*, Pranav Narayanan Venkit*}
   {Preprint}{}
-
-\pubentry{When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation}
-  {M. Akhtar, A. Reuel, P. Soni, \textit{et al.}, \textbf{Avijit Ghosh}, \textit{et al.}}
-  {Preprint}{}
-
-\pubentry{Economies of Open Intelligence: Tracing Power \& Participation in the Model Ecosystem}
-  {S. Longpre, C. Akiki, C. Lund, \textit{et al.}, \textbf{Avijit Ghosh}, Y. Jernite, L. Kaff\'{e}}
-  {Preprint}{}
-
-\pubentry{Who Measures What Matters? An Analysis of Social Impact Evaluations in Foundation Model Reporting}
-  {A. Reuel*, \textbf{Avijit Ghosh}*, J. Chim*, \textit{et al.}}
-  {Preprint}{}
-
-\pubentry{Position: Aligning AI Requires Automating Reasoning Norms}
-  {A. Kierans, \textbf{Avijit Ghosh}, S. Dori-Hacohen}
-  {Preprint}{}
-
-\pubentry{Fully Autonomous AI Agents Should Not be Developed}
-  {Margaret Mitchell, \textbf{Avijit Ghosh}, Alexandra Sasha Luccioni, Giada Pistilli}
-  {Preprint}{}
-
-\pubentry{Dual Governance: The intersection of centralized regulation and crowdsourced safety mechanisms for Generative AI}
-  {\textbf{Avijit Ghosh}, Dhanya Lakshmi}
-  {Preprint}{}
-
-\pubentry{Unified Shapley Framework to Explain Prediction Drift}
-  {Aalok Shanbhag*, \textbf{Avijit Ghosh}*, Josh Rubin*}
-  {Preprint}{}
-
-\pubentry{Supervised extraction of catchphrases from legal documents}
-  {\textbf{Avijit Ghosh}*, Prerit Gupta*, Ritam Dutt, Kaustubh Hiware, Arpan Mandal, Kripabandhu Ghosh, Saptarshi Ghosh}
-  {Preprint}{}
-
-{\footnotesize * Equal contribution}
 
 \section{Teaching}
 
-\noindent\textbf{Adjunct Professor}
+\noindent\sectionpill{Instructor of Record}\vspace{5pt}
+
+\noindent\underline{\large \textit{University of Washington, Seattle}}
 
 \expentry{Northeastern University}{Boston, MA}
   {CS 4973-05: Responsible Machine Learning}{Fall 2023}{
@@ -373,7 +355,9 @@
         term project applying fairness to a real-world scenario.
 }
 
-\noindent\textbf{Teaching Assistant}
+\noindent\sectionpill{Teaching Assistant}\vspace{5pt}
+
+\noindent\underline{\large \textit{University of Washington, Seattle}}
 
 \expentry{Northeastern University}{Boston, MA}
   {Algorithmic Auditing (Dr.\ Piotr Sapiezynski)}{Spring 2022}{
@@ -381,37 +365,83 @@
         of algorithm audits, and limitations of audit-based approaches.
 }
 
-%% ============================================================
-%%  GRANTS
-%% ============================================================
-\section{Grants}
-
-\cvrow{2026}{Evaluation Reporting in the Age of Agentic AI}{Agentic Evaluations Workshop, Hugging Face}
-\cvrow{2025}{Panel on Open Source AI Regulation at the Summit on State AI Legislation}{Digital Ethics Center, Yale University}
+\noindent\underline{\large \textit{University of Minnesota, Twin Cities}}
 
 \section{Awards}
 
-\cvrow{2026}{Evaluation Reporting in the Age of Agentic AI}{Agentic Evaluations Workshop, Hugging Face}
 \cvrow{2025}{Graduate Student Equity \& Excellence Dissertation Award}{University of Washington}
-
-\section{Leadership and Service}
-
-\cvrow{2026}{Evaluation Reporting in the Age of Agentic AI}{Agentic Evaluations Workshop, Hugging Face}
-\cvrow{2025}{Panel on Open Source AI Regulation at the Summit on State AI Legislation}{Digital Ethics Center, Yale University}
+\cvrow{2025}{Excellence in Teaching Award}{University of Washington}
+\cvrow{2025}{Graduate School Presidential Dissertation Fellowship in the Arts, Humanities, Social Sciences, and Social Professions}{University of Washington}
+\cvrow{2024}{Husky100, Class of 2024}{University of Washington}
+\cvrow{2023}{Human Centered Design \& Engineering Award of Excellence}{University of Washington}
+\cvrow{2023}{College of Engineering Teaching Award}{University of Washington}
+\cvrow{2016-20}{Maroon Scholarship (\$11k/year)}{University of Minnesota, Twin Cities}
 
 \section{Speaking Engagements}
 
-\cvrow{2026}{Evaluation Reporting in the Age of Agentic AI}{Agentic Evaluations Workshop, Hugging Face}
-\cvrow{2025}{Panel on Open Source AI Regulation at the Summit on State AI Legislation}{Digital Ethics Center, Yale University}
+\cvrow{Mar 2026}{Panelist, AI Slop Salon}{The Hewlett Foundation}
+\cvrow{Oct 2025}{Curriculum Consultant, International Academic Digital Skills}{DEPA, Thailand}
+\cvrow{Nov 2024}{Curriculum Consultant}{Digital4Good X ICanHelp}
+\cvrow{Sep 2024}{Panelist, Center for Teaching and Learning}{University of Washington}
+\cvrow{May 2024}{Guest Speaker, DEI Taskforce}{World Federation of Advertisers}
+\cvrow{May 2024}{Panelist, Accessible Teaching Strategies}{University of Washington}
+\cvrow{Apr 2024}{Panelist}{ABC's Good Morning America}
+
+\section{Invited Consultations}
+
+\cvrow{Sep 2024}{Reviewer, International AI Safety Report}{AI Safety Institute}
 
 \section{Media Mentions}
 
-\cvrow{2026}{Evaluation Reporting in the Age of Agentic AI}{Agentic Evaluations Workshop, Hugging Face}
-\cvrow{2025}{Panel on Open Source AI Regulation at the Summit on State AI Legislation}{Digital Ethics Center, Yale University}
+\cvrow{2026}{\href{https://www.cnet.com/tech/services-and-software/elon-musks-grok-faces-backlash-over-nonconsensual-ai-altered-images/}{Elon Musk's Grok Faces Backlash Over Nonconsensual \\ AI-Altered Images}}{CNET}
+\cvrow{2025}{\href{https://www-technologyreview-com.cdn.ampproject.org/c/s/www.technologyreview.com/2025/10/01/1124621/openai-india-caste-bias/amp/}{OpenAI is huge in India. Its models are steeped in caste bias}}{MIT Technology Review}
+\cvrow{2024}{\href{https://www.lgbtqnation.com/2024/05/ai-facial-recognition-technology-could-have-devastating-consequences-for-trans-folks/}{AI facial recognition technology could have devastating \\ consequences for trans folks}}{LGBTQ Nation}
+\cvrow{2024}{\href{https://www.404media.co/uk-gender-affirming-care-ai-generated-children/}{Review Used By UK to Limit Gender Affirming Care Uses Images of AI-Generated Kids}}{404Media}
+\cvrow{2024}{\href{https://www.wired.com/story/artificial-intelligence-lgbtq-representation-openai-sora/}{Here’s How Generative AI Depicts Queer People}}{WIRED}
+\cvrow{2024}{\href{https://www.outlookindia.com/international/us/google-temporarily-halts-ai-chatbots-image-generation-amid-criticism-heres-why}{Google Temporarily Halts AI Chatbot’s Image Generation Amid Criticism, Here’s Why}}{Outlook India}
+\cvrow{2024}{\href{https://www.artnews.com/art-news/news/grimes-google-gemini-ai-image-generator-most-impactful-art-project-decade-1234697544/}{Grimes Declares Google Gemini AI the `Most Impactful Art Project of the Decade’}}{ARTNews}
+\cvrow{2024}{\href{https://apnews.com/article/google-gemini-ai-chatbot-imagegenerator-race-c7e14de837aa65dd84f6e7ed6cfc4f4b}{Google says its AI image-generator would sometimes \\ ‘overcompensate’ for diversity}}{Associated Press News}
+\cvrow{2024}{\href{https://apnews.com/article/google-gemini-ai-chatbot-image-generation-1bd45f1e67dfe0f88e5419a6efe3e06f}{Google suspends Gemini AI chatbot’s ability to generate \\ pictures of people}}{Associated Press News}
+\cvrow{2024}{\href{https://nwasianweekly.com/2024/02/unmasking-ai-stereotypes-how-bias-creeps-into-content/}{Unmasking AI stereotypes — How bias creeps into content}}{Northwest Asian Weekly}
+\cvrow{2024}{\href{https://www.opb.org/article/2024/02/13/navigating-the-ethical-challenges-of-artificial-intelligence/}{Navigating the Ethical Challenges of Artificial Intelligence}}{Oregon Public Broadcasting}
+\cvrow{2023}{\href{https://www.firstpost.com/tech/racist-ai-image-generator-stable-diffusion-tainted-with-racial-gendered-stereotypes-finds-study-13453332.html}{Racist AI: Image Generator Stable Diffusion laced with racial, gendered stereotypes, finds study}}{FirstPost}
+\cvrow{2023}{\href{https://peopleofcolorintech.com/articles/study-exposes-alarming-biases-in-ai-image-generator-stable-diffusion-racial-gender-and-geographic-stereotypes/}{Study Exposes Alarming Biases In AI Image Generator, Stable Diffusion: Racial, Gender, And Geographic Stereotypes}}{People of Color in Tech}
+\cvrow{2023}{\href{https://www.washington.edu/news/2023/11/29/ai-image-generator-stable-diffusion-perpetuates-racial-and-gendered-stereotypes-bias/}{AI image generator Stable Diffusion perpetuates racial and gendered stereotypes, study finds}}{University of Washington News}
+\cvrow{2023}{\href{https://www.geekwire.com/2023/ai-imaging-software-generates-a-gallery-of-stereotypes-say-univ-of-washington-researchers/}{AI imaging software generates a gallery of stereotypes, \\ say Univ. of Washington researchers.}}{GeekWire}
+\cvrow{2023}{\href{https://ischool.uw.edu/news/2023/10/students-investigate-how-artificial-intelligence-perpetuates-biases?fbclid=IwAR2nyV0_RiuBVnutpGhnZucRD6e837bVYqHUDzKWWB4iV8KHhj6ltDHDF4A}{Students Investigate How Artificial Intelligence \\ Perpetuates Biases}}{UW Information School Newsletter}
+\cvrow{2023}{\href{https://restofworld.org/2023/chatgpt-problems-global-language-testing/}{We tested ChatGPT in Bengali, Kurdish, and Tamil. It failed.}}{Rest of World}
+
+\section{Leadership}
+% \expentry{Co-Leader, Accessible Teaching Strategies}{May 2024}
+%   {University of Washington}{}{
+%   \item Demonstrated best practices for adapting courses to be accessible to disabled students, such as practicing HyFlex learning and accommodating blind and low-vision students in traditionally visual courses.
+% }
+ 
+
+
+\section{Service}
+\cvrow{2026}{ACM Journal on Responsible Computing}{Program Committee}
+\cvrow{2026}{ACM Journal on Responsible Computing}{Program Committee}
+\cvrow{2026}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
+\cvrow{2025}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
+\cvrow{2025}{AAAI/ACM Annual Conference on AI, Ethics and Society}{Program Committee}
+\cvrow{2025}{Annual Conference, American Society of Engineering Education}{Program Committee}
+\cvrow{2025}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
+\cvrow{2024}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
+\cvrow{2024}{AAAI/ACM Annual Conference on AI, Ethics and Society}{Program Committee}
+\cvrow{2024}{Annual Conference, Association of Internet Researchers}{Program Committee}
+\cvrow{2024}{Annual Conference, American Society of Engineering Education}{Program Committee}
+\cvrow{2024}{ACM Conference on Designing Interactive Systems}{Program Committee}
+\cvrow{2024}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
+\cvrow{2023}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
+\cvrow{2023}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
+\cvrow{2023}{ACM Conference on Designing Interactive Systems}{Program Committee}
+\cvrow{2022}{ACM Conference on Human-Computer Interaction (CSCW)}{Program Committee}
+
 
 \vfill
 \begin{center}
-  \textcolor{accentblue}{\small \today}
+  \textcolor{accentblue}{\small Up-to-date as of \today}
 \end{center}
 
 \end{document}
