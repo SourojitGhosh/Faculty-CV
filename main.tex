@@ -63,10 +63,32 @@
   fontupper = \footnotesize\color{tagtxt}\bfseries
 }
 
-\newtcbox{\confbadge}{
+\newtcbox{\uncbadge}{
   nobeforeafter,
   colback  = tagbg,
   colframe = tagbg,
+  boxrule  = 0pt,
+  arc      = 3pt,
+  top      = 1.5pt, bottom = 1.5pt,
+  left     = 4pt,   right  = 4pt,
+  fontupper = \scriptsize\color{tagtxt}\bfseries
+}
+
+\newtcbox{\umnbadge}{
+  nobeforeafter,
+  colback  = umnmaroon,
+  colframe = umnmaroon,
+  boxrule  = 0pt,
+  arc      = 3pt,
+  top      = 1.5pt, bottom = 1.5pt,
+  left     = 4pt,   right  = 4pt,
+  fontupper = \scriptsize\color{tagtxt}\bfseries
+}
+
+\newtcbox{\uwbadge}{
+  nobeforeafter,
+  colback  = uwpurple,
+  colframe = uwpurple,
   boxrule  = 0pt,
   arc      = 3pt,
   top      = 1.5pt, bottom = 1.5pt,
@@ -84,7 +106,7 @@
   \end{minipage}%
   \hfill
   \begin{minipage}[t]{0.14\linewidth}\raggedleft
-    \raisebox{-5pt}{\confbadge{#3}}\\[2pt]
+    \raisebox{-5pt}{#3}\\[2pt]
     \textcolor{lightgray}{\footnotesize #4}
   \end{minipage}
   \vspace{8pt}
@@ -95,29 +117,42 @@
   \begin{minipage}[t]{0.85\linewidth}
     \large{#1} \par 
     \vspace{3pt}
-    \underline{Volume}: \textit{#2}\\
+    \underline{Book Title}: \textit{#2}\par
+    \vspace{2pt}
     \textit{\small #3}
-  \end{minipage}%
+  \end{minipage}
   \hfill
   \begin{minipage}[t]{0.14\linewidth}\raggedleft
-    \raisebox{-5pt}{\confbadge{#4}}\\[2pt]
+    \raisebox{-5pt}{#4}\\[2pt]
   \end{minipage}
   \vspace{8pt}
 }
 
 \newtcbox{\sectionpill}{
   nobeforeafter,
-  colback  = blk,
+  colback  = tagtxt,
   colframe = blk,
-  boxrule  = 0pt,
+  boxrule  = 1.5pt,
   arc      = 3pt,
-  top      = 2pt, bottom = 2pt,
-  left     = 8pt, right  = 8pt,
-  fontupper = \small\color{tagtxt}\bfseries
+  top      = 1pt, bottom = 1pt,
+  left     = 2pt, right  = 2pt,
+  fontupper = \color{blk}\bfseries
 }
 
-\newcommand{\expentry}[3]{%
-  \noindent\textbf{#1}\hfill{\textit{#2}}\par
+\newcommand{\uwexpentry}[3]{%
+  \noindent\textbf{#1}\hfill{\textcolor{uwpurple}{\textit{#2}}}\par
+  \begin{minipage}[t]{0.85\linewidth} {#3} \end{minipage}\par
+  \vspace{8pt}
+}
+
+\newcommand{\umnexpentry}[3]{%
+  \noindent\textbf{#1}\hfill{\textcolor{umnmaroon}{\textit{#2}}}\par
+  \begin{minipage}[t]{0.85\linewidth} {#3} \end{minipage}\par
+  \vspace{8pt}
+}
+
+\newcommand{\uncexpentry}[3]{%
+  \noindent\textbf{#1}\hfill{ \textcolor{accentblue}{\textit{#2}}}\par
   \begin{minipage}[t]{0.85\linewidth} #3 \end{minipage}\par
   \vspace{8pt}
 }
@@ -128,11 +163,35 @@
 
 \setlength{\parindent}{0pt}
 
-\newcommand{\cvrow}[3]{%
+\newcommand{\uwrow}[3]{%
   \noindent
   \begin{minipage}[t]{0.70\linewidth}
     \hangindent=3.05em\hangafter=1
-    \raisebox{-2pt}{\confbadge{#1}}\hspace{4pt}#2
+    \raisebox{-2pt}{\uwbadge{#1}}\hspace{5pt}#2
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.30\linewidth}\raggedleft
+    \mbox{\textcolor{uwpurple}{\textit{\small #3}}}
+  \end{minipage}\par
+}
+
+\newcommand{\umnrow}[3]{%
+  \noindent
+  \begin{minipage}[t]{0.70\linewidth}
+    \hangindent=3.05em\hangafter=1
+    \raisebox{-2pt}{\umnbadge{#1}}\hspace{5pt}#2
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.30\linewidth}\raggedleft
+    \mbox{\textcolor{umnmaroon}{\textit{\small #3}}}
+  \end{minipage}\par
+}
+
+\newcommand{\uncrow}[3]{%
+  \noindent
+  \begin{minipage}[t]{0.70\linewidth}
+    \hangindent=3.05em\hangafter=1
+    \raisebox{-2pt}{\uncbadge{#1}}\hspace{5pt}#2
   \end{minipage}%
   \hfill
   \begin{minipage}[t]{0.30\linewidth}\raggedleft
@@ -199,10 +258,10 @@
 
 \section{Doctoral Thesis}
 
-\noindent\textbf{\large{Exploring Representational Harms of Generative AI Systems upon  Historically \\ Marginalized Populations often Overlooked in Fairness Research}}\hfill\textcolor{uwpurple}{\textit{June 2026}}\par
+\noindent\textbf{\large{Exploring Representational Harms of Generative AI Systems upon \\  Historically  Marginalized Populations often Overlooked in Fairness Research}}\hfill\textcolor{uwpurple}{\textit{June 2026}}\par
 
 \begin{itemize}[leftmargin=1.5em, itemsep=2pt, topsep=4pt]
-  \item GAI tools replicate harmful stereotypes, consistently overlooking vast sections of historically marginalized populations in fairness research, exposing critical gaps in the field.
+  \item GAI tools replicate harmful stereotypes, consistently overlooking vast sections of \\ historically marginalized populations in fairness research, exposing critical gaps in the field.
   \item To demonstrate this, I present three case studies examining gender bias in low-resource language translation, Western stereotyping of Indian culture in text-to-image tools, and ``castelessness" in my study of AI representations of caste-oppressed communities.
   \item Together, these findings lead me to motivate a broader, more expansive research agenda toward inclusive AI fairness practices and meaningful social good for overlooked communities worldwide.
 \end{itemize}
@@ -214,264 +273,294 @@
 \pubentry
   {What if AI systems weren't Chatbots?}
   {\me, Pranav Narayanan Venkit, Sanjana Gautam, and Avijit Ghosh}
-  {FAccT '26}{Montreal, Canada}
+  {\uwbadge{FAccT '26}}{Montreal}
  
 \pubentry
   {Compounding Disadvantage: Auditing Intersectional Bias in LLM-Generated \\ Explanations Across Indian and American STEM Education}
   {Amogh Gupta, Niharika Patil, \me, and Snehalkumar Gaikwad}
-  {FAccT '26}{Montreal, Canada}
+  {\uwbadge{FAccT '26}}{Montreal}
  
 \pubentry
   {\href{https://ojs.aaai.org/index.php/AIES/article/view/36614}{Documenting Patterns of Exoticism of Marginalized Populations \newline within Text-to-Image Generators}}
   {\me, Sanjana Gautam*, Pranav Narayanan Venkit*, Avijit Ghosh}
-  {AIES '25}{Madrid, Spain}
+  {\uwbadge{AIES '25}}{Madrid}
 \blfootnote{$^*$Equal Contribution}
 \pubentry
-  {\href{https://ojs.aaai.org/index.php/AIES/article/view/36750}{Bias is a Math Problem, AI Bias is a Technical Problem: 10-year Literature Review of AI/LLM Bias Research Reveals Narrow [Gender-Centric] Conceptions of `Bias', and Academia-Industry Gap}}
+  {\href{https://ojs.aaai.org/index.php/AIES/article/view/36750}{Bias is a Math Problem, AI Bias is a Technical Problem: 10-year \\ Literature Review of AI/LLM Bias Research Reveals Narrow \newline [Gender-Centric] Conceptions of `Bias', and Academia-Industry Gap}}
   {\me* and Kyra Wilson*}
-  {AIES '25}{Madrid, Spain}
+  {\uwbadge{AIES '25}}{Madrid}
 
 \pubentry
-    {\href{https://peer.asee.org/empowering-engineering-graduates-to-contribute-towards-designing-safer-generative-ai-tools-through-an-ethics-course}{Empowering Engineering Graduates to Contribute towards  Designing \\ Safer Generative AI Tools through an Ethics Course}}
+    {\href{https://peer.asee.org/empowering-engineering-graduates-to-contribute-towards-designing-safer-generative-ai-tools-through-an-ethics-course}{Empowering Engineering Graduates to Contribute towards Designing \\ Safer Generative AI Tools through an Ethics Course}}
     {\me, and Sarah Coppola}
-    {ASEE '25}{Montreal, Canada}
+    {\uwbadge{ASEE '25}}{Montreal}
 
 \pubentry
     {\href{https://peer.asee.org/integrating-theory-and-practice-into-a-design-foundations-course}{Integrating Theory and Practice into a Design Foundations Course}}
     {\me, Arpita Bhattacharya, and Sarah Coppola}
-    {ASEE '25}{Montreal, Canada}
+    {\uwbadge{ASEE '25}}{Montreal}
 
 \pubentry
     {\href{https://dl.acm.org/doi/10.1145/3706598.3713666}{``They’ve Over-Emphasized That One Search”: Controlling Unwanted \\ Content on TikTok's For You Page}}
     {Julie Vera*, and \me*}
-    {CHI '25}{Yokohama, Japan}
+    {\uwbadge{CHI '25}}{Yokohama}
     
 \pubentry
   {\href{https://ojs.aaai.org/index.php/AIES/article/view/31652}{Interpretations, Representations, and Stereotypes of Caste within \newline Text-to-Image Generators}}
   {\me}
-  {AIES '24}{San Jose, California}
+  {\uwbadge{AIES '24}}{San Jose}
 
 \pubentry
-  {\href{https://ojs.aaai.org/index.php/AIES/article/view/31650}{``I don't see myself represented here at all": User Experiences of Stable Diffusion Outputs Containing Representational Harms across Gender Identities and Nationalities}}
+  {\href{https://ojs.aaai.org/index.php/AIES/article/view/31650}{``I don't see myself represented here at all": User Experiences of \newline Stable Diffusion Outputs Containing Representational Harms across \newline Gender Identities and Nationalities}}
   {\me, Pranav Narayanan Venkit*, Sanjana Gautam*, Shomir Wilson, and Aylin Caliskan}
-  {AIES '24}{San Jose, California}
+  {\uwbadge{AIES '24}}{San Jose}
 
 \pubentry
-  {\href{https://ojs.aaai.org/index.php/AIES/article/view/31651}{Do Generative AI Models Output Harm While Representing Non-western Cultures: Evidence from a Community-Centered Approach}}
+  {\href{https://ojs.aaai.org/index.php/AIES/article/view/31651}{Do Generative AI Models Output Harm While Representing \newline Non-western Cultures: Evidence from a Community-Centered Approach}}
   {\me, Nina Lutz*, and Aylin Caliskan}
-  {AIES '24}{San Jose, California}
+  {\uwbadge{AIES '24}}{San Jose}
   
 \pubentry
     {\href{https://peer.asee.org/chatgpt-as-a-tool-for-equitable-education-in-engineering-classes}{ChatGPT as a Tool for Equitable Education in Engineering Classes}}
     {\me}
-    {ASEE '24}{Portland, Oregon}
+    {\uwbadge{ASEE '24}}{Portland}
 
 \pubentry
     {\href{https://peer.asee.org/reflecting-on-adapting-visual-oriented-classes-for-blind-and-low-vision-students}{Reflecting on Adapting Visual-Oriented Classes for Blind and Low-Vision Students}}
     {\me, Kunal Mehta, Maxwell Coppock, and Sarah Coppola}
-    {ASEE '24}{Portland, Oregon}
+    {\uwbadge{ASEE '24}}{Portland}
 
 \pubentry
     {\href{https://peer.asee.org/co-creating-inclusion-designing-a-living-inclusive-teaching-toolkit}{Co-Creating Inclusion: Designing a Living Inclusive Teaching Toolkit}}
     {Mina Zavary*, and \me*}
-    {ASEE '24}{Portland, Oregon}
+    {\uwbadge{ASEE '24}}{Portland}
 
 \pubentry
     {\href{https://dl.designresearchsociety.org/drs-conference-papers/drs2024/researchpapers/331/}{This Class Isn’t Designed For Me: Recognizing Ableist Trends In \\ Design Education, And Redesigning For An Inclusive And Sustainable Future}}
     {\me, and Sarah Coppola}
-    {DRS '24}{Boston, Massachusetts}
+    {\uwbadge{DRS '24}}{Boston}
 
 \pubentry
   {\href{https://aclanthology.org/2023.findings-emnlp.465/}{“Person” == Light-skinned, Western Man, and Sexualization of \\ Women of Color: Stereotypes in Stable Diffusion}}
   {\me, and Aylin Caliskan}
-  {EMNLP '23}{Singapore City, Singapore}
+  {\uwbadge{EMNLP '23}}{Singapore City}
 
 \pubentry
   {\href{http://camps.aptaracorp.com/ACM_PMS/PMS/ACM/ICER23V1/14/38bc1875-03fe-11ee-b37c-16bb50361d1f/OUT/icer23v1-14.html}{Taking Stock of Concept Inventories in Computing Education: \\ A Systematic Literature Review}}
   {Murtaza Ali, \me, Prerna Rao, Raveena Dhegaskar, Sophia Jawort, \\ Alix Medler, Mengqi Shi, and Sayamindu Dasgupta}
-  {ICER '23}{Chicago, Illinois}
+  {\uwbadge{ICER '23}}{Chicago}
 
 \pubentry
-  {\href{https://dl.acm.org/doi/10.1145/3600211.3604672}{ChatGPT Perpetuates Gender Bias in Machine Translation and Ignores Non-Gendered Pronouns: Findings across Bengali and Five other Low-Resource Languages}}
+  {\href{https://dl.acm.org/doi/10.1145/3600211.3604672}{ChatGPT Perpetuates Gender Bias in Machine Translation and \newline Ignores Non-Gendered Pronouns: Findings across Bengali and \newline Five other Low-Resource Languages}}
   {\me, and Aylin Caliskan}
-  {AIES '23}{Montreal, Canada}
+  {\uwbadge{AIES '23}}{Montreal}
 
 \pubentry
     {\href{https://sourojitghosh.github.io/publication/paper10}{Making a Case for HyFlex Learning in Design Engineering Classes}}
     {\me, and Sarah Coppola}
-    {ASEE '23}{Baltimore, Maryland}
+    {\uwbadge{ASEE '23}}{Baltimore}
 
 \pubentry
  {\href{https://sourojitghosh.github.io/publication/paper6}{Establishing TikTok as a Platform for Informal Learning: Evidence from \\ Mixed-Methods Analysis of Creators and Viewers}}
   {\me, and Andrea Figueora}
-  {HICSS '23}{Maui, Hawaii}  
+  {\uwbadge{HICSS '23}}{Maui}  
 
 \pubentry
  {\href{https://sourojitghosh.github.io/files/3532106.3533449.pdf}{Slanted Speculations:: Material Encounters with Algorithmic Bias}}
   {Gabrielle Benabdallah, Ashten Alexander, \me, Chariell Glogovac-Smith, \\ Lacey Jacoby, Caitlin Lustig, Anh Nguyen, Anna Parkhurst, Kathryn Reyes, Neilly H. Tan, \\ Edward Wolcher, Afroditi Psarra, and Daniela Rosner}
-  {DIS '22}{Remote}
+  {\uwbadge{DIS '22}}{Remote}
 
 \pubentry
   {\href{https://dl.acm.org/doi/pdf/10.1145/3434184}{Patterns of Patient and Caregiver Mutual Support Connections \\ in an Online Health Community}}
   {Zachary Levonian, Marco Dow, Drew Erikson, \me, Hannah Miller Hillberg, \\ Saumik Narayanan, Loren Terveen, and Svetlana Yarosh}
-  {CSCW '20}{Remote}
+  {\umnbadge{CSCW '20}}{Remote}
 
-\vspace{10pt}
 \noindent\sectionpill{Peer-Reviewed Journals}
 
 \pubentry
   {\href{https://commons.erau.edu/cgi/viewcontent.cgi?article=2025&context=jaaer}{`I’m a Pilot First, Female Second': Why Flight Deck Gender Imbalance \\ Persists and the Case for Allyship}}
   {Kimberly Perkins, Rachael Merola, \me, and Cecilia Aragon}
-  {JAAER `25}{}
-
+  {\uwbadge{JAAER `25}}{}
 
 \pubentry
   {\href{https://doi.org/10.58940/2329-258X.2022}{nterpersonal Skills in a Sociotechnical System: A Training Gap in Flight Decks}}
   {Kimberly Perkins, \me, and Crystall Hall}
-  {JAAER `24}{}
+  {\uwbadge{JAAER `24}}{}
 
 \pubentry
   {\href{https://sourojitghosh.github.io/publication/paper4}{The Persistence of Safety Silence: How Flight Deck Microcultures Influence \newline the Efficacy of Crew Resource Management}}
   {Kimberly Perkins, \me, Julie Vera, Cecilia Aragon, and Adam Hyland}
-  {IJAAA `23}{}
+  {\uwbadge{IJAAA `23}}{}
 
 \pubentry
   {\href{https://journal.transformativeworks.org/index.php/twc/article/view/2477}{Leveraging Community Support and Platform Affordances on a Path \\ to More Active Participation: A Study of Online Fan Fiction Communities}}
   {\me, and Cecilia Aragon}
-  {TWC `24}{}
+  {\uwbadge{TWC `24}}{}
 
-
-\vspace{10pt}
 \noindent\sectionpill{Peer-Reviewed Workshop}
 
 \pubentry
   {\href{https://sourojitghosh.github.io/publication/paper2}{Not Just Cells in a Dataset: Imagining a Human-Centered Data Science \\ Approach to Social Recommendation Algorithms}}
   {\me, Andrea Figueroa, Murtaza Ali, and Cecilia Aragon}
-  {HCDS@CHI '22}{New Orleans, Louisiana}
+  {\uwbadge{HCDS@CHI '22}}{New Orleans}
 
 \pubentry{\href{https://sourojitghosh.github.io/publication/paper18}{From Melting Pots to Misrepresentations: Exploring Harms in Generative AI}}
   {Sanjana Gautam*, \me*, Pranav Narayanan Venkit*}
-  {GenAI@CHI '23}{Yokohama, Japan}
+  {\uwbadge{GenAI@CHI '23}}{Yokohama}
 
-\vspace{10pt}
+\newpage
 \noindent\sectionpill{Book Chapters}
 
 \bookchapter
   {\href{https://sourojitghosh.github.io/publication/paper25}{Machine Translation, Large Language Models, and Generative AI  \\ in the University Classroom: Toward a Pedagogy of Care}}
   {The Social Impact of Automating Translation}
   {\me, and Srishti Chatterjee}
-  {Routledge `24}
+  {\uwbadge{Routledge `24}}
 
 \bookchapter
   {\href{https://arxiv.org/abs/2401.13165}{Misgendering and Assuming Gender in Machine Translation when \\  Working with Low-Resource Languages}}
   {Gendered Technology in Translation and Interpreting}
   {\me, and Srishti Chatterjee}
-  {Routledge `24}
+  {\uwbadge{Routledge `24}}
 
-\vspace{10pt}
 \noindent\sectionpill{Lightly-Reviewed Conferences}
 
-\pubentry{\href{https://spir.aoir.org/ojs/index.php/spir/article/download/14055/11814}{To Screenshot or Not to Screenshot? Tensions in Representing Visual Social Media Platform Posts}}
+\pubentry{\href{https://spir.aoir.org/ojs/index.php/spir/article/download/14055/11814}{To Screenshot or Not to Screenshot? Tensions in Representing Visual \\ Social Media Platform Posts}}
 {Joseph Schafer, Brett Halperin, Julie Vera, and \me}
-  {AOIR '24}{Sheffield, UK}
+  {\uwbadge{AOIR '24}}{Sheffield}
 
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-76827-9_12}{Text Characteristics Vector: Rethinking Human-Centered Sentiment Analysis with  Emotion-Related Text Characteristics}}
-  {Cheng Guo, Yanfu Liu, Yue Yuan, Wuhao Zhang, and \me}
-  {HCII '24}{Washington, DC}
-
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-93415-5_22\#citeas}{Post-Editing Vs Neural Machine Translation: A Comparative Study of English $\leftrightarrow$ Mandarin Translations in Daily Conversations}}
+\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-93415-5_22\#citeas}{Post-Editing Vs Neural Machine Translation: A Comparative Study of \\ English $\leftrightarrow$ Mandarin Translations in Daily Conversations}}
     {Yanfu Liu, Cheng Guo, and \me}
-  {HCII '24}{Washington, DC}
+  {\uwbadge{HCII '24}}{Washington, DC}
 
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-76827-9_12}{Text Characteristics Vector: Rethinking Human-Centered Sentiment Analysis with  Emotion-Related Text Characteristics}}
+\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-76827-9_12}{Text Characteristics Vector: Rethinking Human-Centered Sentiment Analysis \\ with  Emotion-Related Text Characteristics}}
   {Cheng Guo, Yanfu Liu, Yue Yuan, Wuhao Zhang, and \me}
-  {HCII '24}{Washington, DC}
+  {\uwbadge{HCII '24}}{Washington, DC}
 
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35927-9_32}{“I love you, my dear friend”: Analysing the Role of Emotions in the Building of Friendships in Online Fanfiction Communities}}
+\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35927-9_32}{“I love you, my dear friend”: Analysing the Role of Emotions in the \\ Building of Friendships in Online Fanfiction Communities}}
   {\me, Niamh Froelich, and Cecilia Aragon}
-  {HCII '23}{Copenhagen, \\Denmark}
+  {\uwbadge{HCII '23}}{Copenhagen}
 
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35891-3_5}{“Do we like this, or do we \textit{like} like this?”: Reflections on a Human-Centered Machine Learning Approach to Sentiment Analysis}}
-  {\me, , Murtaza Ali, Anna Batra, Cheng Guo, Mohit Jain, Joseph Kang, Julia Kharchenko, Varun Suravajhela, Vincent Zhou, and Cecilia Aragon}
-  {HCIC '23}{Copenhagen, \\Denmark}
+\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35891-3_5}{“Do we like this, or do we \textit{like} like this?”: Reflections on a Human-Centered \\ Machine Learning Approach to Sentiment Analysis}}
+  {\me, , Murtaza Ali, Anna Batra, Cheng Guo, Mohit Jain, Joseph Kang, \\ Julia Kharchenko, Varun Suravajhela, Vincent Zhou, and Cecilia Aragon}
+  {\uwbadge{HCII '23}}{Copenhagen}
 
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35132-7_2}{Generalized Cohen’s Kappa: A Novel Inter-rater Reliability Metric for Non-Mutually Exclusive Categories}}
+\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35132-7_2}{Generalized Cohen’s Kappa: A Novel Inter-rater Reliability Metric for \\ Non-Mutually Exclusive Categories}}
   {Andrea Figueroa, \me, and Cecilia Aragon}
-  {HCII '23}{Copenhagen, \\Denmark}
+  {\uwbadge{HCII '23}}{Copenhagen}
 
-\pubentry{\href{https://sourojitghosh.github.io/publication/paper5}{Reflecting on Hybrid Learning in Studio-based Courses: Complications and Effectiveness during the Pandemic and Beyond}}
+\pubentry{\href{https://sourojitghosh.github.io/publication/paper5}{Reflecting on Hybrid Learning in Studio-based Courses: Complications \\ and Effectiveness during the Pandemic and Beyond}}
   {\me, and Sarah Coppola}
-  {HFES '22}{Atlanta, Georgia}
+  {\uwbadge{HFES '22}}{Atlanta}
 
-\pubentry{\href{https://sourojitghosh.github.io/publication/paper5}{Recruitment, Admissions, Hiring, Retention, and Promotion: Mechanisms of Diversity, Equity, Inclusion, and Belonging}}
+\pubentry{\href{https://sourojitghosh.github.io/publication/paper5}{Recruitment, Admissions, Hiring, Retention, and Promotion: Mechanisms of \\ Diversity, Equity, Inclusion, and Belonging}}
   {Erin K. Chiou, Richard J. Holden, \me, Yuliana Flores, and Rod D. Roscoe}
-  {HFES '22}{Atlanta, Georgia}
-
+  {\uwbadge{HFES '22}}{Atlanta}
+\newpage
 \section{Teaching}
 
-\noindent\sectionpill{Instructor of Record}\vspace{5pt}
+\noindent\sectionpill{Instructor of Record}\vspace{3pt}
 
-\noindent\underline{\large \textit{University of Washington, Seattle}} \vspace{3pt}
+\noindent\underline{\large \textcolor{uwpurple}{\textit{University of Washington, Seattle}}}\vspace{3pt}
 
-\expentry{Foundations of Human Centered AI}{\textcolor{uwpurple}{Wi26, Sp24}}
+\uwexpentry{Foundations of Human Centered AI}{Wi26}
   {Developed a novel course on human-centered approaches to AI design by combining technical foundations in model-building with ethical questions of potential societal implications, as the first course of a novel AI Certificate program. 
 }
 
-\noindent\sectionpill{Teaching Assistant}\vspace{5pt}
+\uwexpentry{Data Tools \& AI Ethics in Emerging Tech}{Au25}
+  {Provided introductory lectures into AI Ethics, Responsible Data Practices, and \\ approaches to safe and harm-aware usage to Thai high-school students in an experiential-learning format, and oversaw mini-projects and research pitches using AI. 
+}
 
-\noindent\underline{\large \textit{University of Washington, Seattle}}\vspace{3pt}
+\uwexpentry{Experimental Research Methods}{Au25}
+  {Introduced research through experimental design, hypothesis formation and testing, and statistical analysis, culiminating in formal research writing,  in a project-based format to first-time researchers with little to no prior experience in Statistics. 
+}
 
-\noindent\underline{\large \textit{University of Minnesota, Twin Cities}}\vspace{3pt}
+\uwexpentry{Introduction to User Research}{Sp25}
+  {Instructed students new to user-centered research on a variety of qualitative research methods such as field study, interviewing, and surveys, within the context of conducting user research, in a project-based format focused towards product design.
+}
 
-\expentry{Teaching in American Classrooms}{\textcolor{umnmaroon}{Su20}}
-  {Trained new international STEM PhD students in teaching methods in US university classrooms such as facilitating small- and large-group discussions, dealing with silence in classrooms, and building rapport with both instructors and students from cultures different to their own.}
+\uwexpentry{Human-Centeredness in Generative AI: Opportunities and Challenges \newline within the Design Process}{Sp24, Au24}
+  {Designed a novel project-based course on using GAI tools within the design process, exploring potential ethical concerns and harms caused towards historically marginalized populations, and developing best practices for safer GAI usage. 
+}
 
-\expentry{Center for Writing}{\textcolor{umnmaroon}{Au18-Sp20}}
-  {Supervised undergraduate staff and trained their development of writing consultation pedagogy,  trained new employees both in general writing consultation and understanding writer needs for specific courses, and maintained and contributed to growing the Center's homegrown database.}
+\uwexpentry{Concepts in Human-Computer Interaction}{Au23, Wi24}
+  {Led a writing-intensive seminar-style course on foundational concepts and topics within the field of HCI, updated existing course content to reflect emergent areas of focus, and supported students from multiple departments in their mini research explorations.
+}
+
+\uwexpentry{Concepts in Human-Computer Interaction}{Au23, Wi24}
+  {Led a writing-intensive seminar-style course on foundational concepts and topics within the field of HCI, updated existing course content to reflect emergent areas of focus, and supported students from multiple departments in their mini research explorations.
+}
+
+\uwexpentry{Introduction to User-Centered Design}{Wi21, Au21 -- Au22}
+  {Taught 10-week project-based courses leading students through the user-centered design process including ideation, user research, prototyping and user testing, designed and delivered lectures on equitable practices in design.}
+
+\noindent\sectionpill{Teaching Assistant}\vspace{3pt}
+
+\noindent\underline{\large \textcolor{uwpurple}{\textit{University of Washington, Seattle}}}\vspace{3pt}
+
+\uwexpentry{Information Visualization}{Sp23}
+  {Supported student projects in utilizing visualization and data science to design systems for diverse users, facilitated hybrid instruction, graded student work with a 48-hr turnaround, and managed course workings through office hours and in-class support. 
+}
+
+\uwexpentry{Inclusive and Accessible Design}{Wi23}
+  {Guided students through designing for users with disabilities such as vision, hearing, mobility, or invisible disabilities, and developed guest lectures on recognizing privilege within design spaces and working with communities one does not identify with. 
+}
+
+\uwexpentry{Introduction to Inclusive Design}{Su21}
+  {Demonstrated techniques of accessible design through real-world examples and case studies, mentored students in building designer practices to foreground accessibility in their work, and organized in-class discussions on accessibility-related content. 
+}
+
+\noindent\underline{\large \textcolor{umnmaroon}{\textit{University of Minnesota, Twin Cities}}}\vspace{3pt}
+
+\umnexpentry{Teaching in American Classrooms}{Su20}
+  {Trained international PhD students in teaching methods in US university classrooms such as facilitating group discussions, dealing with silence in classrooms, and building rapport with instructors and students from cultures different to their own.}
+
+\umnexpentry{Center for Writing}{Au18 -- Sp20}
+  {Supervised undergraduate staff in development of writing consultation pedagogy, trained new employees in general writing consultation and understanding writer needs for specific courses, and contributed to growing the Center's homegrown database.}
 
 \section{Awards}
 
-\cvrow{2025}{Graduate Student Equity \& Excellence Dissertation Award}{University of Washington}
-\cvrow{2025}{Excellence in Teaching Award}{University of Washington}
-\cvrow{2025}{Graduate School Presidential Dissertation Fellowship in the Arts, Humanities, Social Sciences, and Social Professions}{University of Washington}
-\cvrow{2024}{Husky100, Class of 2024}{University of Washington}
-\cvrow{2023}{Human Centered Design \& Engineering Award of Excellence}{University of Washington}
-\cvrow{2023}{College of Engineering Teaching Award}{University of Washington}
-\cvrow{2016-20}{Maroon Scholarship (\$11k/year)}{University of Minnesota, Twin Cities}
+\uwrow{2025}{Graduate Student Equity \& Excellence Dissertation Award}{University of Washington, Seattle}
+\uwrow{2025}{Excellence in Teaching Award}{University of Washington, Seattle}
+\uwrow{2025}{Graduate School Presidential Dissertation Fellowship in the Arts, Humanities, Social Sciences, and Social Professions}{University of Washington, Seattle}
+\uwrow{2024}{Husky100, Class of 2024}{University of Washington, Seattle}
+\uwrow{2023}{Human Centered Design \& Engineering Award of Excellence}{University of Washington, Seattle}
+\uwrow{2023}{College of Engineering Teaching Award}{University of Washington, Seattle}
+\umnrow{2016-20}{Maroon Scholarship (\$11k/year)}{University of Minnesota, Twin Cities}
 
-\section{Speaking Engagements}
+\section{Speaking Engagements and Guest Lectures}
 
-\cvrow{Mar 2026}{Panelist, AI Slop Salon}{The Hewlett Foundation}
-\cvrow{Oct 2025}{Curriculum Consultant, International Academic Digital Skills}{DEPA, Thailand}
-\cvrow{Nov 2024}{Curriculum Consultant}{Digital4Good X ICanHelp}
-\cvrow{Sep 2024}{Panelist, Center for Teaching and Learning}{University of Washington}
-\cvrow{May 2024}{Guest Speaker, DEI Taskforce}{World Federation of Advertisers}
-\cvrow{May 2024}{Panelist, Accessible Teaching Strategies}{University of Washington}
-\cvrow{Apr 2024}{Panelist}{ABC's Good Morning America}
+\uwrow{2026}{Panelist, AI Slop Salon}{The Hewlett Foundation}
+\uwrow{2025}{Curriculum Consultant, International Academic Digital Skills}{DEPA, Thailand}
+\uwrow{2024}{Curriculum Consultant}{Digital4Good X ICanHelp}
+\uwrow{2024}{Panelist, Center for Teaching and Learning}{University of Washington}
+\uwrow{2024}{Guest Speaker, DEI Taskforce}{World Federation of Advertisers}
+\uwrow{2024}{Panelist, Accessible Teaching Strategies}{University of Washington}
+\uwrow{2024}{Panelist}{ABC's Good Morning America}
 
 \section{Invited Consultations}
 
-\cvrow{Sep 2024}{Reviewer, International AI Safety Report}{AI Safety Institute}
+\uwrow{2024}{Reviewer, International AI Safety Report}{AI Safety Institute}
 
 \section{Media Mentions}
 
-\cvrow{2026}{\href{https://www.cnet.com/tech/services-and-software/elon-musks-grok-faces-backlash-over-nonconsensual-ai-altered-images/}{Elon Musk's Grok Faces Backlash Over Nonconsensual \\ AI-Altered Images}}{CNET}
-\cvrow{2025}{\href{https://www-technologyreview-com.cdn.ampproject.org/c/s/www.technologyreview.com/2025/10/01/1124621/openai-india-caste-bias/amp/}{OpenAI is huge in India. Its models are steeped in caste bias}}{MIT Technology Review}
-\cvrow{2024}{\href{https://www.lgbtqnation.com/2024/05/ai-facial-recognition-technology-could-have-devastating-consequences-for-trans-folks/}{AI facial recognition technology could have devastating \\ consequences for trans folks}}{LGBTQ Nation}
-\cvrow{2024}{\href{https://www.404media.co/uk-gender-affirming-care-ai-generated-children/}{Review Used By UK to Limit Gender Affirming Care Uses Images of AI-Generated Kids}}{404Media}
-\cvrow{2024}{\href{https://www.wired.com/story/artificial-intelligence-lgbtq-representation-openai-sora/}{Here’s How Generative AI Depicts Queer People}}{WIRED}
-\cvrow{2024}{\href{https://www.outlookindia.com/international/us/google-temporarily-halts-ai-chatbots-image-generation-amid-criticism-heres-why}{Google Temporarily Halts AI Chatbot’s Image Generation Amid Criticism, Here’s Why}}{Outlook India}
-\cvrow{2024}{\href{https://www.artnews.com/art-news/news/grimes-google-gemini-ai-image-generator-most-impactful-art-project-decade-1234697544/}{Grimes Declares Google Gemini AI the `Most Impactful Art Project of the Decade’}}{ARTNews}
-\cvrow{2024}{\href{https://apnews.com/article/google-gemini-ai-chatbot-imagegenerator-race-c7e14de837aa65dd84f6e7ed6cfc4f4b}{Google says its AI image-generator would sometimes \\ ‘overcompensate’ for diversity}}{Associated Press News}
-\cvrow{2024}{\href{https://apnews.com/article/google-gemini-ai-chatbot-image-generation-1bd45f1e67dfe0f88e5419a6efe3e06f}{Google suspends Gemini AI chatbot’s ability to generate \\ pictures of people}}{Associated Press News}
-\cvrow{2024}{\href{https://nwasianweekly.com/2024/02/unmasking-ai-stereotypes-how-bias-creeps-into-content/}{Unmasking AI stereotypes — How bias creeps into content}}{Northwest Asian Weekly}
-\cvrow{2024}{\href{https://www.opb.org/article/2024/02/13/navigating-the-ethical-challenges-of-artificial-intelligence/}{Navigating the Ethical Challenges of Artificial Intelligence}}{Oregon Public Broadcasting}
-\cvrow{2023}{\href{https://www.firstpost.com/tech/racist-ai-image-generator-stable-diffusion-tainted-with-racial-gendered-stereotypes-finds-study-13453332.html}{Racist AI: Image Generator Stable Diffusion laced with racial, gendered stereotypes, finds study}}{FirstPost}
-\cvrow{2023}{\href{https://peopleofcolorintech.com/articles/study-exposes-alarming-biases-in-ai-image-generator-stable-diffusion-racial-gender-and-geographic-stereotypes/}{Study Exposes Alarming Biases In AI Image Generator, Stable Diffusion: Racial, Gender, And Geographic Stereotypes}}{People of Color in Tech}
-\cvrow{2023}{\href{https://www.washington.edu/news/2023/11/29/ai-image-generator-stable-diffusion-perpetuates-racial-and-gendered-stereotypes-bias/}{AI image generator Stable Diffusion perpetuates racial and gendered stereotypes, study finds}}{University of Washington News}
-\cvrow{2023}{\href{https://www.geekwire.com/2023/ai-imaging-software-generates-a-gallery-of-stereotypes-say-univ-of-washington-researchers/}{AI imaging software generates a gallery of stereotypes, \\ say Univ. of Washington researchers.}}{GeekWire}
-\cvrow{2023}{\href{https://ischool.uw.edu/news/2023/10/students-investigate-how-artificial-intelligence-perpetuates-biases?fbclid=IwAR2nyV0_RiuBVnutpGhnZucRD6e837bVYqHUDzKWWB4iV8KHhj6ltDHDF4A}{Students Investigate How Artificial Intelligence \\ Perpetuates Biases}}{UW Information School Newsletter}
-\cvrow{2023}{\href{https://restofworld.org/2023/chatgpt-problems-global-language-testing/}{We tested ChatGPT in Bengali, Kurdish, and Tamil. It failed.}}{Rest of World}
+\uwrow{2026}{\href{https://www.cnet.com/tech/services-and-software/elon-musks-grok-faces-backlash-over-nonconsensual-ai-altered-images/}{Elon Musk's Grok Faces Backlash Over Nonconsensual \\ AI-Altered Images}}{CNET}
+\uwrow{2025}{\href{https://www-technologyreview-com.cdn.ampproject.org/c/s/www.technologyreview.com/2025/10/01/1124621/openai-india-caste-bias/amp/}{OpenAI is huge in India. Its models are steeped in caste bias}}{MIT Technology Review}
+\uwrow{2024}{\href{https://www.lgbtqnation.com/2024/05/ai-facial-recognition-technology-could-have-devastating-consequences-for-trans-folks/}{AI facial recognition technology could have devastating \\ consequences for trans folks}}{LGBTQ Nation}
+\uwrow{2024}{\href{https://www.404media.co/uk-gender-affirming-care-ai-generated-children/}{Review Used By UK to Limit Gender Affirming Care Uses Images of AI-Generated Kids}}{404Media}
+\uwrow{2024}{\href{https://www.wired.com/story/artificial-intelligence-lgbtq-representation-openai-sora/}{Here’s How Generative AI Depicts Queer People}}{WIRED}
+\uwrow{2024}{\href{https://www.outlookindia.com/international/us/google-temporarily-halts-ai-chatbots-image-generation-amid-criticism-heres-why}{Google Temporarily Halts AI Chatbot’s Image Generation Amid Criticism, Here’s Why}}{Outlook India}
+\uwrow{2024}{\href{https://www.artnews.com/art-news/news/grimes-google-gemini-ai-image-generator-most-impactful-art-project-decade-1234697544/}{Grimes Declares Google Gemini AI the `Most Impactful Art Project of the Decade’}}{ARTNews}
+\uwrow{2024}{\href{https://apnews.com/article/google-gemini-ai-chatbot-imagegenerator-race-c7e14de837aa65dd84f6e7ed6cfc4f4b}{Google says its AI image-generator would sometimes \\ ‘overcompensate’ for diversity}}{Associated Press News}
+\uwrow{2024}{\href{https://apnews.com/article/google-gemini-ai-chatbot-image-generation-1bd45f1e67dfe0f88e5419a6efe3e06f}{Google suspends Gemini AI chatbot’s ability to generate \\ pictures of people}}{Associated Press News}
+\uwrow{2024}{\href{https://nwasianweekly.com/2024/02/unmasking-ai-stereotypes-how-bias-creeps-into-content/}{Unmasking AI stereotypes — How bias creeps into content}}{Northwest Asian Weekly}
+\uwrow{2024}{\href{https://www.opb.org/article/2024/02/13/navigating-the-ethical-challenges-of-artificial-intelligence/}{Navigating the Ethical Challenges of Artificial Intelligence}}{Oregon Public Broadcasting}
+\uwrow{2023}{\href{https://www.firstpost.com/tech/racist-ai-image-generator-stable-diffusion-tainted-with-racial-gendered-stereotypes-finds-study-13453332.html}{Racist AI: Image Generator Stable Diffusion laced with racial, gendered stereotypes, finds study}}{FirstPost}
+\uwrow{2023}{\href{https://peopleofcolorintech.com/articles/study-exposes-alarming-biases-in-ai-image-generator-stable-diffusion-racial-gender-and-geographic-stereotypes/}{Study Exposes Alarming Biases In AI Image Generator, Stable Diffusion: Racial, Gender, And Geographic Stereotypes}}{People of Color in Tech}
+\uwrow{2023}{\href{https://www.washington.edu/news/2023/11/29/ai-image-generator-stable-diffusion-perpetuates-racial-and-gendered-stereotypes-bias/}{AI image generator Stable Diffusion perpetuates racial and gendered stereotypes, study finds}}{University of Washington News}
+\uwrow{2023}{\href{https://www.geekwire.com/2023/ai-imaging-software-generates-a-gallery-of-stereotypes-say-univ-of-washington-researchers/}{AI imaging software generates a gallery of stereotypes, \\ say Univ. of Washington researchers.}}{GeekWire}
+\uwrow{2023}{\href{https://ischool.uw.edu/news/2023/10/students-investigate-how-artificial-intelligence-perpetuates-biases?fbclid=IwAR2nyV0_RiuBVnutpGhnZucRD6e837bVYqHUDzKWWB4iV8KHhj6ltDHDF4A}{Students Investigate How Artificial Intelligence \\ Perpetuates Biases}}{UW Information School Newsletter}
+\uwrow{2023}{\href{https://restofworld.org/2023/chatgpt-problems-global-language-testing/}{We tested ChatGPT in Bengali, Kurdish, and Tamil. It failed.}}{Rest of World}
 
 \section{Leadership}
 % \expentry{Co-Leader, Accessible Teaching Strategies}{May 2024}
@@ -482,26 +571,25 @@
 
 
 \section{Service}
-\cvrow{2026}{ACM Journal on Responsible Computing}{Program Committee}
-\cvrow{2026}{ACM Journal on Responsible Computing}{Program Committee}
-\cvrow{2026}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
-\cvrow{2025}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
-\cvrow{2025}{AAAI/ACM Annual Conference on AI, Ethics and Society}{Program Committee}
-\cvrow{2025}{Annual Conference, American Society of Engineering Education}{Program Committee}
-\cvrow{2025}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
-\cvrow{2024}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
-\cvrow{2024}{AAAI/ACM Annual Conference on AI, Ethics and Society}{Program Committee}
-\cvrow{2024}{Annual Conference, Association of Internet Researchers}{Program Committee}
-\cvrow{2024}{Annual Conference, American Society of Engineering Education}{Program Committee}
-\cvrow{2024}{ACM Conference on Designing Interactive Systems}{Program Committee}
-\cvrow{2024}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
-\cvrow{2023}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
-\cvrow{2023}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
-\cvrow{2023}{ACM Conference on Designing Interactive Systems}{Program Committee}
-\cvrow{2022}{ACM Conference on Human-Computer Interaction (CSCW)}{Program Committee}
+\uwrow{2026}{AAAI Annual Conference on AI, Ethics and Society}{Program Committee}
+\uwrow{2026}{ACM Journal on Responsible Computing}{Program Committee}
+\uwrow{2026}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
+\uwrow{2025}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
+\uwrow{2025}{AAAI/ACM Annual Conference on AI, Ethics and Society}{Program Committee}
+\uwrow{2025}{Annual Conference, American Society of Engineering Education}{Program Committee}
+\uwrow{2025}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
+\uwrow{2024}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
+\uwrow{2024}{AAAI/ACM Annual Conference on AI, Ethics and Society}{Program Committee}
+\uwrow{2024}{Annual Conference, Association of Internet Researchers}{Program Committee}
+\uwrow{2024}{Annual Conference, American Society of Engineering Education}{Program Committee}
+\uwrow{2024}{ACM Conference on Designing Interactive Systems}{Program Committee}
+\uwrow{2024}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
+\uwrow{2023}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
+\uwrow{2023}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
+\uwrow{2023}{ACM Conference on Designing Interactive Systems}{Program Committee}
+\uwrow{2022}{ACM SIGCHI Conference on Computer-Supported Cooperative Work \& Social Computing}{Program Committee}
 
-
-\vfill
+vfill
 \begin{center}
   \textcolor{accentblue}{\small Up-to-date as of \today \\ Inspired by \href{https://evijit.io/assets/pdf/Avijit_CV.pdf}{Avijit Ghosh}}
 \end{center}
