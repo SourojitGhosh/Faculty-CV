@@ -30,12 +30,13 @@
 \definecolor{umnmaroon}{HTML}{7a0019}         
 \definecolor{uwpurple}{HTML}{39275B}         
 \definecolor{tagbg}{HTML}{4b9cd3}             
-\definecolor{tagtxt}{HTML}{FFFFFF}            
+\definecolor{tagtxt}{HTML}{FFFFFF}    
+\definecolor{blk}{HTML}{000000}  
 \definecolor{lightgray}{gray}{0.55}
 \let\oldbf\textbf
 
 \renewcommand{\textbf}[1]{{\color{accentblue}\oldbf{#1}}}
-
+                       
 \hypersetup{
   colorlinks = true,
   urlcolor   = accentblue,
@@ -45,7 +46,7 @@
 }
 
 \titleformat{\section}
-  {\large\bfseries\color{black}}
+  {\Large\bfseries\color{black}}
   {}{0pt}{}
   [\vspace{-12pt}\rule{\linewidth}{0.5pt}\vspace{2pt}]
 
@@ -77,22 +78,37 @@
 
 \newcommand{\pubentry}[4]{%
   \noindent
-  \begin{minipage}[t]{0.73\linewidth}
+  \begin{minipage}[t]{0.85\linewidth}
     \large{#1}\\
-    \textit{\footnotesize #2}
+    \textit{\small #2}
   \end{minipage}%
   \hfill
-  \begin{minipage}[t]{0.24\linewidth}\raggedleft
+  \begin{minipage}[t]{0.14\linewidth}\raggedleft
     \raisebox{-5pt}{\confbadge{#3}}\\[2pt]
     \textcolor{lightgray}{\footnotesize #4}
   \end{minipage}
-  \vspace{4pt}
+  \vspace{8pt}
+}
+
+\newcommand{\bookchapter}[4]{%
+  \noindent
+  \begin{minipage}[t]{0.85\linewidth}
+    \large{#1} \par 
+    \vspace{3pt}
+    \underline{Volume}: \textit{#2}\\
+    \textit{\small #3}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.14\linewidth}\raggedleft
+    \raisebox{-5pt}{\confbadge{#4}}\\[2pt]
+  \end{minipage}
+  \vspace{8pt}
 }
 
 \newtcbox{\sectionpill}{
   nobeforeafter,
-  colback  = tagbg,
-  colframe = tagbg,
+  colback  = blk,
+  colframe = blk,
   boxrule  = 0pt,
   arc      = 3pt,
   top      = 2pt, bottom = 2pt,
@@ -100,13 +116,10 @@
   fontupper = \small\color{tagtxt}\bfseries
 }
 
-\newcommand{\expentry}[5]{%
-  \noindent\textbf{#1}\hfill\textcolor{tagbg}{\small\textit{#2}}\par
-  \noindent\textit{#3}\hfill\textcolor{tagbg}{\small\textit{#4}}\par
-  \begin{itemize}[leftmargin=1.5em, itemsep=1pt, topsep=2pt, parsep=0pt]
-    #5
-  \end{itemize}%
-  \vspace{4pt}
+\newcommand{\expentry}[3]{%
+  \noindent\textbf{#1}\hfill{\textit{#2}}\par
+  \begin{minipage}[t]{0.85\linewidth} #3 \end{minipage}\par
+  \vspace{8pt}
 }
 
 \newcommand{\tablerow}[3]{%
@@ -139,18 +152,26 @@
   \end{minipage}\par
 }
 
+\newcommand\blfootnote[1]{
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}
+    \addtocounter{footnote}{-1}
+    \endgroup
+}
+
 \begin{document}
 \pagestyle{empty}
 
 \begin{center}
-  {\LARGE\bfseries Sourojit Ghosh}\\[4pt]
-  {\color{accentblue}\textbf{Assistant Professor at The University of North Carolina at Chapel Hill}}\\[2pt]
-  {\small Faculty Researcher at the Center for Information, Technology, and Public Life (CITAP) }\\[6pt]
+  {\LARGE\bfseries Sourojit Ghosh}\\[5pt]
+  {\color{accentblue}\textbf{Assistant Professor, University of North Carolina at Chapel Hill}}\\[3pt]
+  {\small Faculty Researcher, \textit{Center for Information, Technology, and Public Life (CITAP)} }\\[6pt]
 
   \small
   \faEnvelope\ \href{mailto:sourojitg@gmail.com}{Email}\quad
   \faGlobe\ \href{https://sourojitghosh.github.io/}{Personal Website} \quad
-  \faGlobe\ \href{https://sourojitghosh.github.io/unseen-lab/}{Lab Website} \\[5pt]
+  \faGlobe\ \href{https://sourojitghosh.github.io/unseen-lab/}{Lab Website} 
+  \\[6pt]
     \cvtag{\strut AI for Social Good}
     \cvtag{\strut Human Centered AI}
     \cvtag{\strut AI Policy}
@@ -158,31 +179,32 @@
     \cvtag{\strut AI Education}
 \end{center}
 
-\vspace{6pt}
+\vspace{5pt}
 
 \section{Education}
 
 \noindent\large{University of Washington}\hfill\textcolor{uwpurple}{\textit{Seattle, WA}}\par
-\noindent\textit{Ph.D.,\ M.S.\ in Human-Centered Design and Engineering}\hfill\textcolor{uwpurple}{\textit{2020--2026}}\\
+\noindent\textit{Ph.D. in Human-Centered Design and Engineering}\hfill\textcolor{uwpurple}{\textit{2020--2026}}\\
 \textit{(Advised by Dr.\ Cecilia Aragon)}\par
 
-\vspace{6pt}
+\vspace{2pt}
+
+\noindent\large{University of Washington}\hfill\textcolor{uwpurple}{\textit{Seattle, WA}}\par
+\noindent\textit{M.S. in Human-Centered Design and Engineering}\hfill\textcolor{uwpurple}{\textit{2020--2022}}\par
+
+\vspace{2pt}
 
 \noindent\large{University of Minnesota, Twin Cities}\hfill\textcolor{umnmaroon}{\textit{Minneapolis, MN}}\par
 \noindent\textit{B.Sc.\ in Computer Science, Minor in Creative Writing}\hfill\textcolor{umnmaroon}{\textit{2016--2020}}\par
 
 \section{Doctoral Thesis}
 
-\noindent\large{Algorithmic Fairness in the Real World: Challenges and Considerations}\hfill\textcolor{uwpurple}{\textit{Defended June 2023}}\par
+\noindent\textbf{\large{Exploring Representational Harms of Generative AI Systems upon  Historically \\ Marginalized Populations often Overlooked in Fairness Research}}\hfill\textcolor{uwpurple}{\textit{June 2026}}\par
 
 \begin{itemize}[leftmargin=1.5em, itemsep=2pt, topsep=4pt]
-  \item Social bias in machine learning algorithms is a widespread problem that has been addressed
-        through various measures, but implementing fair machine learning systems in the real world is
-        challenging due to issues like noisy demographic information, adversarial vulnerabilities,
-        policy restrictions and complex interactions between humans and algorithms.
-  \item In my thesis, I outline these problems in fair ML systems, with the aim to gain a more complete
-        understanding of the issues involved and to be able to provide technical and policy
-        recommendations to overcome their real world implementation challenges.
+  \item GAI tools replicate harmful stereotypes, consistently overlooking vast sections of historically marginalized populations in fairness research, exposing critical gaps in the field.
+  \item To demonstrate this, I present three case studies examining gender bias in low-resource language translation, Western stereotyping of Indian culture in text-to-image tools, and ``castelessness" in my study of AI representations of caste-oppressed communities.
+  \item Together, these findings lead me to motivate a broader, more expansive research agenda toward inclusive AI fairness practices and meaningful social good for overlooked communities worldwide.
 \end{itemize}
 
 \section{Publications}
@@ -191,11 +213,11 @@
 
 \pubentry
   {What if AI systems weren't Chatbots?}
-  {\me, Pranav Narayanan Venkit*, Sanjana Gautam*, and Avijit Ghosh}
+  {\me, Pranav Narayanan Venkit, Sanjana Gautam, and Avijit Ghosh}
   {FAccT '26}{Montreal, Canada}
  
 \pubentry
-  {Compounding Disadvantage: Auditing Intersectional Bias in LLM-Generated Explanations Across Indian and American STEM Education}
+  {Compounding Disadvantage: Auditing Intersectional Bias in LLM-Generated \\ Explanations Across Indian and American STEM Education}
   {Amogh Gupta, Niharika Patil, \me, and Snehalkumar Gaikwad}
   {FAccT '26}{Montreal, Canada}
  
@@ -203,14 +225,14 @@
   {\href{https://ojs.aaai.org/index.php/AIES/article/view/36614}{Documenting Patterns of Exoticism of Marginalized Populations \newline within Text-to-Image Generators}}
   {\me, Sanjana Gautam*, Pranav Narayanan Venkit*, Avijit Ghosh}
   {AIES '25}{Madrid, Spain}
-
+\blfootnote{$^*$Equal Contribution}
 \pubentry
   {\href{https://ojs.aaai.org/index.php/AIES/article/view/36750}{Bias is a Math Problem, AI Bias is a Technical Problem: 10-year Literature Review of AI/LLM Bias Research Reveals Narrow [Gender-Centric] Conceptions of `Bias', and Academia-Industry Gap}}
-  {\me\footstar{Equal Contribution} and Kyra Wilson*}
+  {\me* and Kyra Wilson*}
   {AIES '25}{Madrid, Spain}
 
 \pubentry
-    {\href{https://peer.asee.org/empowering-engineering-graduates-to-contribute-towards-designing-safer-generative-ai-tools-through-an-ethics-course}{Empowering Engineering Graduates to Contribute towards  Designing Safer Generative AI Tools through an Ethics Course}}
+    {\href{https://peer.asee.org/empowering-engineering-graduates-to-contribute-towards-designing-safer-generative-ai-tools-through-an-ethics-course}{Empowering Engineering Graduates to Contribute towards  Designing \\ Safer Generative AI Tools through an Ethics Course}}
     {\me, and Sarah Coppola}
     {ASEE '25}{Montreal, Canada}
 
@@ -220,7 +242,7 @@
     {ASEE '25}{Montreal, Canada}
 
 \pubentry
-    {\href{https://dl.acm.org/doi/10.1145/3706598.3713666}{``They’ve Over-Emphasized That One Search”: Controlling Unwanted Content on TikTok's For You Page}}
+    {\href{https://dl.acm.org/doi/10.1145/3706598.3713666}{``They’ve Over-Emphasized That One Search”: Controlling Unwanted \\ Content on TikTok's For You Page}}
     {Julie Vera*, and \me*}
     {CHI '25}{Yokohama, Japan}
     
@@ -255,18 +277,18 @@
     {ASEE '24}{Portland, Oregon}
 
 \pubentry
-    {\href{https://dl.designresearchsociety.org/drs-conference-papers/drs2024/researchpapers/331/}{This Class Isn’t Designed For Me: Recognizing Ableist Trends In Design Education, And Redesigning For An Inclusive And Sustainable Future}}
+    {\href{https://dl.designresearchsociety.org/drs-conference-papers/drs2024/researchpapers/331/}{This Class Isn’t Designed For Me: Recognizing Ableist Trends In \\ Design Education, And Redesigning For An Inclusive And Sustainable Future}}
     {\me, and Sarah Coppola}
     {DRS '24}{Boston, Massachusetts}
 
 \pubentry
-  {\href{https://aclanthology.org/2023.findings-emnlp.465/}{“Person” == Light-skinned, Western Man, and Sexualization of Women of Color: Stereotypes in Stable Diffusion}}
+  {\href{https://aclanthology.org/2023.findings-emnlp.465/}{“Person” == Light-skinned, Western Man, and Sexualization of \\ Women of Color: Stereotypes in Stable Diffusion}}
   {\me, and Aylin Caliskan}
   {EMNLP '23}{Singapore City, Singapore}
 
 \pubentry
-  {\href{http://camps.aptaracorp.com/ACM_PMS/PMS/ACM/ICER23V1/14/38bc1875-03fe-11ee-b37c-16bb50361d1f/OUT/icer23v1-14.html}{Taking Stock of Concept Inventories in Computing Education: A Systematic Literature Review}}
-  {Murtaza Ali, \me, Prerna Rao, Raveena Dhegaskar, Sophia Jawort, Alix Medler, \\ Mengqi Shi, and Sayamindu Dasgupta}
+  {\href{http://camps.aptaracorp.com/ACM_PMS/PMS/ACM/ICER23V1/14/38bc1875-03fe-11ee-b37c-16bb50361d1f/OUT/icer23v1-14.html}{Taking Stock of Concept Inventories in Computing Education: \\ A Systematic Literature Review}}
+  {Murtaza Ali, \me, Prerna Rao, Raveena Dhegaskar, Sophia Jawort, \\ Alix Medler, Mengqi Shi, and Sayamindu Dasgupta}
   {ICER '23}{Chicago, Illinois}
 
 \pubentry
@@ -280,76 +302,71 @@
     {ASEE '23}{Baltimore, Maryland}
 
 \pubentry
- {\href{https://sourojitghosh.github.io/publication/paper6}{Establishing TikTok as a Platform for Informal Learning: Evidence from Mixed-Methods Analysis of Creators and Viewers}}
+ {\href{https://sourojitghosh.github.io/publication/paper6}{Establishing TikTok as a Platform for Informal Learning: Evidence from \\ Mixed-Methods Analysis of Creators and Viewers}}
   {\me, and Andrea Figueora}
   {HICSS '23}{Maui, Hawaii}  
 
 \pubentry
  {\href{https://sourojitghosh.github.io/files/3532106.3533449.pdf}{Slanted Speculations:: Material Encounters with Algorithmic Bias}}
-  {Gabrielle Benabdallah, Ashten Alexander, \me, Chariell Glogovac-Smith, Lacey Jacoby, Caitlin Lustig, Anh Nguyen, Anna Parkhurst, Kathryn Reyes, Neilly H. Tan, Edward Wolcher, Afroditi Psarra, and Daniela Rosner}
+  {Gabrielle Benabdallah, Ashten Alexander, \me, Chariell Glogovac-Smith, \\ Lacey Jacoby, Caitlin Lustig, Anh Nguyen, Anna Parkhurst, Kathryn Reyes, Neilly H. Tan, \\ Edward Wolcher, Afroditi Psarra, and Daniela Rosner}
   {DIS '22}{Remote}
 
 \pubentry
-  {\href{https://dl.acm.org/doi/pdf/10.1145/3434184}{Patterns of Patient and Caregiver Mutual Support Connections in an Online Health Community}}
-  {Zachary Levonian, Marco Dow, Drew Erikson, \me, Hannah Miller Hillberg, Saumik Narayanan, Loren Terveen, and Svetlana Yarosh}
+  {\href{https://dl.acm.org/doi/pdf/10.1145/3434184}{Patterns of Patient and Caregiver Mutual Support Connections \\ in an Online Health Community}}
+  {Zachary Levonian, Marco Dow, Drew Erikson, \me, Hannah Miller Hillberg, \\ Saumik Narayanan, Loren Terveen, and Svetlana Yarosh}
   {CSCW '20}{Remote}
 
 \vspace{10pt}
 \noindent\sectionpill{Peer-Reviewed Journals}
 
 \pubentry
-  {\href{https://commons.erau.edu/cgi/viewcontent.cgi?article=2025&context=jaaer}{`I’m a Pilot First, Female Second': Why Flight Deck Gender Imbalance Persists and the Case for Allyship}}
+  {\href{https://commons.erau.edu/cgi/viewcontent.cgi?article=2025&context=jaaer}{`I’m a Pilot First, Female Second': Why Flight Deck Gender Imbalance \\ Persists and the Case for Allyship}}
   {Kimberly Perkins, Rachael Merola, \me, and Cecilia Aragon}
-  {Journal}{Journal of Aviation/Aerospace Education \& Research}
+  {JAAER `25}{}
 
 
 \pubentry
-  {\href{https://commons.erau.edu/cgi/viewcontent.cgi?article=2025&context=jaaer}{`I’m a Pilot First, Female Second': Why Flight Deck Gender Imbalance Persists and the Case for Allyship}}
+  {\href{https://doi.org/10.58940/2329-258X.2022}{nterpersonal Skills in a Sociotechnical System: A Training Gap in Flight Decks}}
   {Kimberly Perkins, \me, and Crystall Hall}
-  {Journal}{Journal of Aviation/Aerospace Education \& Research}
+  {JAAER `24}{}
 
 \pubentry
   {\href{https://sourojitghosh.github.io/publication/paper4}{The Persistence of Safety Silence: How Flight Deck Microcultures Influence \newline the Efficacy of Crew Resource Management}}
   {Kimberly Perkins, \me, Julie Vera, Cecilia Aragon, and Adam Hyland}
-  {Journal}{International Journal of Aviation, Aeronautics, and Aerospace}
+  {IJAAA `23}{}
 
 \pubentry
-  {\href{https://journal.transformativeworks.org/index.php/twc/article/view/2477}{Leveraging Community Support and Platform Affordances on a Path to More Active Participation: A Study of Online Fan Fiction Communities}}
+  {\href{https://journal.transformativeworks.org/index.php/twc/article/view/2477}{Leveraging Community Support and Platform Affordances on a Path \\ to More Active Participation: A Study of Online Fan Fiction Communities}}
   {\me, and Cecilia Aragon}
-  {Journal}{Transformative Works and Cultures}
+  {TWC `24}{}
 
 
 \vspace{10pt}
 \noindent\sectionpill{Peer-Reviewed Workshop}
 
 \pubentry
-  {\href{https://sourojitghosh.github.io/publication/paper2}{Not Just Cells in a Dataset: Imagining a Human-Centered Data Science Approach to Social Recommendation Algorithms}}
+  {\href{https://sourojitghosh.github.io/publication/paper2}{Not Just Cells in a Dataset: Imagining a Human-Centered Data Science \\ Approach to Social Recommendation Algorithms}}
   {\me, Andrea Figueroa, Murtaza Ali, and Cecilia Aragon}
   {HCDS@CHI '22}{New Orleans, Louisiana}
 
-\pubentry{\href{https://sourojitghosh.github.io/publication/paper18}{From Melting Pots to Misrepresentations: Exploring Harms \\ in Generative AI}}
+\pubentry{\href{https://sourojitghosh.github.io/publication/paper18}{From Melting Pots to Misrepresentations: Exploring Harms in Generative AI}}
   {Sanjana Gautam*, \me*, Pranav Narayanan Venkit*}
   {GenAI@CHI '23}{Yokohama, Japan}
 
 \vspace{10pt}
 \noindent\sectionpill{Book Chapters}
 
-\pubentry
-  {\href{https://sourojitghosh.github.io/publication/paper25}{Machine Translation, Large Language Models, and Generative AI in the University Classroom: Toward a Pedagogy of Care}}
+\bookchapter
+  {\href{https://sourojitghosh.github.io/publication/paper25}{Machine Translation, Large Language Models, and Generative AI  \\ in the University Classroom: Toward a Pedagogy of Care}}
+  {The Social Impact of Automating Translation}
   {\me, and Srishti Chatterjee}
-  {Chapter}{The Social Impact of\\ Automating Translation}
+  {Routledge `24}
 
-\pubentry
-  {\href{https://arxiv.org/abs/2401.13165}{Misgendering and Assuming Gender in Machine Translation when Working with Low-Resource Languages}}
+\bookchapter
+  {\href{https://arxiv.org/abs/2401.13165}{Misgendering and Assuming Gender in Machine Translation when \\  Working with Low-Resource Languages}}
+  {Gendered Technology in Translation and Interpreting}
   {\me, and Srishti Chatterjee}
-  {Chapter}{Gendered Technology in Translation and Interpreting}
-
-% \vspace{10pt}
-% \noindent\sectionpill{Preprints}
-
-% \pubentry{From Melting Pots to Misrepresentations: Exploring Harms \\ in Generative AI}
-%   {Sanjana Gautam*, \me*, Pranav Narayanan Venkit*}
-%   {Preprint}{}
+  {Routledge `24}
 
 \vspace{10pt}
 \noindent\sectionpill{Lightly-Reviewed Conferences}
@@ -372,15 +389,15 @@
 
 \pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35927-9_32}{“I love you, my dear friend”: Analysing the Role of Emotions in the Building of Friendships in Online Fanfiction Communities}}
   {\me, Niamh Froelich, and Cecilia Aragon}
-  {HCII '23}{Copenhagen, Denmark}
+  {HCII '23}{Copenhagen, \\Denmark}
 
 \pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35891-3_5}{“Do we like this, or do we \textit{like} like this?”: Reflections on a Human-Centered Machine Learning Approach to Sentiment Analysis}}
   {\me, , Murtaza Ali, Anna Batra, Cheng Guo, Mohit Jain, Joseph Kang, Julia Kharchenko, Varun Suravajhela, Vincent Zhou, and Cecilia Aragon}
-  {HCIC '23}{Copenhagen, Denmark}
+  {HCIC '23}{Copenhagen, \\Denmark}
 
 \pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35132-7_2}{Generalized Cohen’s Kappa: A Novel Inter-rater Reliability Metric for Non-Mutually Exclusive Categories}}
   {Andrea Figueroa, \me, and Cecilia Aragon}
-  {HCII '23}{Copenhagen, Denmark}
+  {HCII '23}{Copenhagen, \\Denmark}
 
 \pubentry{\href{https://sourojitghosh.github.io/publication/paper5}{Reflecting on Hybrid Learning in Studio-based Courses: Complications and Effectiveness during the Pandemic and Beyond}}
   {\me, and Sarah Coppola}
@@ -390,32 +407,27 @@
   {Erin K. Chiou, Richard J. Holden, \me, Yuliana Flores, and Rod D. Roscoe}
   {HFES '22}{Atlanta, Georgia}
 
-
 \section{Teaching}
 
 \noindent\sectionpill{Instructor of Record}\vspace{5pt}
 
-\noindent\underline{\large \textit{University of Washington, Seattle}}
+\noindent\underline{\large \textit{University of Washington, Seattle}} \vspace{3pt}
 
-\expentry{Northeastern University}{Boston, MA}
-  {CS 4973-05: Responsible Machine Learning}{Fall 2023}{
-  \item Designed and taught a course exploring the ethical challenges of creating and deploying ML
-        models; topics included algorithmic fairness, bias auditing, ML privacy, and AI safety.
-  \item Assignments covered bias uncovering methods and algorithmic fairness techniques; culminated in a
-        term project applying fairness to a real-world scenario.
+\expentry{Foundations of Human Centered AI}{\textcolor{uwpurple}{Wi26, Sp24}}
+  {Developed a novel course on human-centered approaches to AI design by combining technical foundations in model-building with ethical questions of potential societal implications, as the first course of a novel AI Certificate program. 
 }
 
 \noindent\sectionpill{Teaching Assistant}\vspace{5pt}
 
-\noindent\underline{\large \textit{University of Washington, Seattle}}
+\noindent\underline{\large \textit{University of Washington, Seattle}}\vspace{3pt}
 
-\expentry{Northeastern University}{Boston, MA}
-  {Algorithmic Auditing (Dr.\ Piotr Sapiezynski)}{Spring 2022}{
-  \item Supported instruction on audit design, noise control, minimizing stakeholder harms, legal bounds
-        of algorithm audits, and limitations of audit-based approaches.
-}
+\noindent\underline{\large \textit{University of Minnesota, Twin Cities}}\vspace{3pt}
 
-\noindent\underline{\large \textit{University of Minnesota, Twin Cities}}
+\expentry{Teaching in American Classrooms}{\textcolor{umnmaroon}{Su20}}
+  {Trained new international STEM PhD students in teaching methods in US university classrooms such as facilitating small- and large-group discussions, dealing with silence in classrooms, and building rapport with both instructors and students from cultures different to their own.}
+
+\expentry{Center for Writing}{\textcolor{umnmaroon}{Au18-Sp20}}
+  {Supervised undergraduate staff and trained their development of writing consultation pedagogy,  trained new employees both in general writing consultation and understanding writer needs for specific courses, and maintained and contributed to growing the Center's homegrown database.}
 
 \section{Awards}
 
