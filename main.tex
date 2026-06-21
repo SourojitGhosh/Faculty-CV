@@ -22,8 +22,8 @@
 \geometry{
   left   = 1.8cm,
   right  = 1.8cm,
-  top    = 1.6cm,
-  bottom = 1.6cm
+  top    = 2cm,
+  bottom = 2cm
 }
 
 \definecolor{accentblue}{HTML}{13294B} 
@@ -98,32 +98,118 @@
 
 \newcommand{\me}{\textbf{Sourojit Ghosh}}
 
+\newcounter{totalpubs}
+\newcounter{totaljournals}
+\newcounter{totalworkshops}
+\newcounter{totalchapters}
+\newcounter{totalLRs}
+% \newcounter{pubcount}
+\makeatletter
+
+\AtEndDocument{
+\immediate\write\@auxout{\string\gdef\string\maxpubcount{\the\value{totalpubs}}}
+\immediate\write\@auxout{\string\gdef\string\maxjourcount{\the\value{totaljournals}}}
+\immediate\write\@auxout{\string\gdef\string\maxwkcount{\the\value{totalworkshops}}}
+\immediate\write\@auxout{\string\gdef\string\maxchaptercount{\the\value{totalchapters}}}
+\immediate\write\@auxout{\string\gdef\string\maxlrcount{\the\value{totalLRs}}}
+}
+
+\newcommand{\labelcvitem}[2]{
+  \protected@edef\@currentlabel{#1#2}
+  \label{cv:#1-#2}%
+}
+\newcommand{\menteeptr}[2]{\ref{cv:#1-#2}}
+
+\makeatother
+
+\providecommand{\maxpubcount}{0}
+\providecommand{\maxjournalcount}{0}
+\providecommand{\maxwkcount}{0}
+\providecommand{\maxchaptercount}{0}
+\providecommand{\maxlrcount}{0}
+
 \newcommand{\pubentry}[4]{%
+  \stepcounter{totalpubs}
   \noindent
-  \begin{minipage}[t]{0.85\linewidth}
-    \large{#1}\\
+  \begin{minipage}[t]{0.75\linewidth}
+    \numdef\thispubnum{\maxpubcount + 1 - \value{totalpubs}}
+    \labelcvitem{P}{\thispubnum}%
+    \textbf{[P\thispubnum]} \large{#1}\\
     \textit{\small #2}
   \end{minipage}%
   \hfill
-  \begin{minipage}[t]{0.14\linewidth}\raggedleft
-    \raisebox{-5pt}{#3}\\[2pt]
+  \begin{minipage}[t]{0.24\linewidth}\raggedleft
+    \raisebox{-5pt}{\confbadge{#3}}\\[2pt]
+    \textcolor{lightgray}{\footnotesize #4}
+  \end{minipage}
+  \vspace{8pt}
+}
+
+\newcommand{\jourentry}[4]{%
+  \stepcounter{totaljournals}
+  \noindent
+  \begin{minipage}[t]{0.75\linewidth}
+    \numdef\thisjournum{\maxjourcount + 1 - \value{totaljournals}}
+    \labelcvitem{J}{\thisjournum}
+    \textbf{[J\thisjournum]} \large{#1}\\
+    \textit{\small #2}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.24\linewidth}\raggedleft
+    \raisebox{-5pt}{\confbadge{#3}}\\[2pt]
+    \textcolor{lightgray}{\footnotesize #4}
+  \end{minipage}
+  \vspace{8pt}
+}
+
+\newcommand{\wkentry}[4]{%
+  \stepcounter{totalworkshops}
+  \noindent
+  \begin{minipage}[t]{0.75\linewidth}
+\numdef\thisworknum{\maxwkcount + 1 - \value{totalworkshops}}%
+    \labelcvitem{W}{\thisworknum}%
+    \textbf{[W\thisworknum]} \large{#1}\\
+    \textit{\small #2}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.24\linewidth}\raggedleft
+    \raisebox{-5pt}{\confbadge{#3}}\\[2pt]
     \textcolor{lightgray}{\footnotesize #4}
   \end{minipage}
   \vspace{8pt}
 }
 
 \newcommand{\bookchapter}[4]{%
+  \stepcounter{totalchapters}
   \noindent
   \begin{minipage}[t]{0.85\linewidth}
-    \large{#1} \par 
-    \vspace{3pt}
+    \numdef\thischapnum{\maxchaptercount + 1 - \value{totalchapters}}%
+    \labelcvitem{B}{\thischapnum}%
+    \textbf{[B\thischapnum]} \large{#1}\\
     \underline{Book Title}: \textit{#2}\par
     \vspace{2pt}
     \textit{\small #3}
-  \end{minipage}
+  \end{minipage}%
   \hfill
   \begin{minipage}[t]{0.14\linewidth}\raggedleft
     \raisebox{-5pt}{#4}\\[2pt]
+  \end{minipage}
+  \vspace{8pt}
+}
+
+\newcommand{\lrentry}[4]{%
+  \stepcounter{totalLRs}
+  \noindent
+  \begin{minipage}[t]{0.75\linewidth}
+    \numdef\thislrnum{\maxlrcount + 1 - \value{totalLRs}}%
+    \labelcvitem{LR}{\thislrnum}%
+    \textbf{[LR\thislrnum]} \large{#1}\\
+    \textit{\small #2}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.24\linewidth}\raggedleft
+    \raisebox{-5pt}{\confbadge{#3}}\\[2pt]
+    \textcolor{lightgray}{\footnotesize #4}
   \end{minipage}
   \vspace{8pt}
 }
@@ -165,37 +251,37 @@
 
 \newcommand{\uwrow}[3]{%
   \noindent
-  \begin{minipage}[t]{0.70\linewidth}
+  \begin{minipage}[t]{0.67\linewidth}
     \hangindent=3.05em\hangafter=1
     \raisebox{-2pt}{\uwbadge{#1}}\hspace{5pt}#2
   \end{minipage}%
   \hfill
-  \begin{minipage}[t]{0.30\linewidth}\raggedleft
-    \mbox{\textcolor{uwpurple}{\textit{\small #3}}}
+  \begin{minipage}[t]{0.33\linewidth}\raggedleft
+    \parbox[t]{\linewidth}{\raggedleft\textcolor{uwpurple}{\textit{\small #3}}}
   \end{minipage}\par
 }
 
 \newcommand{\umnrow}[3]{%
   \noindent
-  \begin{minipage}[t]{0.70\linewidth}
+  \begin{minipage}[t]{0.67\linewidth}
     \hangindent=3.05em\hangafter=1
     \raisebox{-2pt}{\umnbadge{#1}}\hspace{5pt}#2
   \end{minipage}%
   \hfill
-  \begin{minipage}[t]{0.30\linewidth}\raggedleft
-    \mbox{\textcolor{umnmaroon}{\textit{\small #3}}}
+  \begin{minipage}[t]{0.33\linewidth}\raggedleft
+    \parbox[t]{\linewidth}{\raggedleft\textcolor{umnmaroon}{\textit{\small #3}}}
   \end{minipage}\par
 }
 
 \newcommand{\uncrow}[3]{%
   \noindent
-  \begin{minipage}[t]{0.70\linewidth}
+  \begin{minipage}[t]{0.67\linewidth}
     \hangindent=3.05em\hangafter=1
     \raisebox{-2pt}{\uncbadge{#1}}\hspace{5pt}#2
   \end{minipage}%
   \hfill
-  \begin{minipage}[t]{0.30\linewidth}\raggedleft
-    \mbox{\textcolor{tagbg}{\textit{\small #3}}}
+  \begin{minipage}[t]{0.33\linewidth}\raggedleft
+    \parbox[t]{\linewidth}{\raggedleft\textcolor{tagbg}{\textit{\small #3}}}
   \end{minipage}\par
 }
 
@@ -218,13 +304,14 @@
     \endgroup
 }
 
+
 \begin{document}
 \pagestyle{empty}
 
 \begin{center}
   {\LARGE\bfseries Sourojit Ghosh}\\[5pt]
-  {\color{accentblue}\textbf{Assistant Professor, University of North Carolina at Chapel Hill}}\\[3pt]
-  {\small Faculty Researcher, \textit{Center for Information, Technology, and Public Life (CITAP)} }\\[6pt]
+  % {\color{accentblue}\textbf{Assistant Professor, University of North Carolina at Chapel Hill}}\\[3pt]
+  % {\small Faculty Researcher, \textit{Center for Information, Technology, and Public Life (CITAP)} }\\[6pt]
 
   \small
   \faEnvelope\ \href{mailto:sourojitg@gmail.com}{Email}\quad
@@ -239,6 +326,12 @@
 \end{center}
 
 \vspace{5pt}
+
+\section{Employment}
+
+\noindent\large{University of North Carolina}\hfill\textcolor{tagbg}{\textit{Chapel Hill, NC}}\par
+\noindent\textit{Assistant Professor, School of Data and Information Sciences}\hfill\textcolor{tagbg}{\textit{2020--2026}}\\
+\textit{Faculty Researcher, Center for Information, Technology, and Public Life (CITAP)}
 
 \section{Education}
 
@@ -276,7 +369,7 @@
   {\uwbadge{FAccT '26}}{Montreal}
  
 \pubentry
-  {Compounding Disadvantage: Auditing Intersectional Bias in LLM-Generated \\ Explanations Across Indian and American STEM Education}
+  {Compounding Disadvantage: Auditing Intersectional Bias in LLM-Generated  Explanations Across Indian and American STEM Education}
   {Amogh Gupta, Niharika Patil, \me, and Snehalkumar Gaikwad}
   {\uwbadge{FAccT '26}}{Montreal}
  
@@ -312,7 +405,7 @@
 
 \pubentry
   {\href{https://ojs.aaai.org/index.php/AIES/article/view/31650}{``I don't see myself represented here at all": User Experiences of \newline Stable Diffusion Outputs Containing Representational Harms across \newline Gender Identities and Nationalities}}
-  {\me, Pranav Narayanan Venkit*, Sanjana Gautam*, Shomir Wilson, and Aylin Caliskan}
+  {\me, Pranav Narayanan Venkit*, Sanjana Gautam*, Shomir Wilson, \\ and Aylin Caliskan}
   {\uwbadge{AIES '24}}{San Jose}
 
 \pubentry
@@ -361,7 +454,7 @@
     {\uwbadge{ASEE '23}}{Baltimore}
 
 \pubentry
- {\href{https://sourojitghosh.github.io/publication/paper6}{Establishing TikTok as a Platform for Informal Learning: Evidence from \\ Mixed-Methods Analysis of Creators and Viewers}}
+ {\href{https://sourojitghosh.github.io/publication/paper6}{Establishing TikTok as a Platform for Informal Learning: Evidence from Mixed-Methods Analysis of Creators and Viewers}}
   {\me, and Andrea Figueora}
   {\uwbadge{HICSS '23}}{Maui}  
 
@@ -374,41 +467,40 @@
   {\href{https://dl.acm.org/doi/pdf/10.1145/3434184}{Patterns of Patient and Caregiver Mutual Support Connections \\ in an Online Health Community}}
   {Zachary Levonian, Marco Dow, Drew Erikson, \me, Hannah Miller Hillberg, \\ Saumik Narayanan, Loren Terveen, and Svetlana Yarosh}
   {\umnbadge{CSCW '20}}{Remote}
-
+\newpage
 \noindent\sectionpill{Peer-Reviewed Journals}
 
-\pubentry
+\jourentry
   {\href{https://commons.erau.edu/cgi/viewcontent.cgi?article=2025&context=jaaer}{`I’m a Pilot First, Female Second': Why Flight Deck Gender Imbalance \\ Persists and the Case for Allyship}}
   {Kimberly Perkins, Rachael Merola, \me, and Cecilia Aragon}
   {\uwbadge{JAAER `25}}{}
 
-\pubentry
-  {\href{https://doi.org/10.58940/2329-258X.2022}{nterpersonal Skills in a Sociotechnical System: A Training Gap in Flight Decks}}
+\jourentry
+  {\href{https://doi.org/10.58940/2329-258X.2022}{Interpersonal Skills in a Sociotechnical System: A Training Gap in Flight Decks}}
   {Kimberly Perkins, \me, and Crystall Hall}
   {\uwbadge{JAAER `24}}{}
 
-\pubentry
-  {\href{https://sourojitghosh.github.io/publication/paper4}{The Persistence of Safety Silence: How Flight Deck Microcultures Influence \newline the Efficacy of Crew Resource Management}}
+\jourentry
+  {\href{https://sourojitghosh.github.io/publication/paper4}{The Persistence of Safety Silence: How Flight Deck Microcultures Influence the Efficacy of Crew Resource Management}}
   {Kimberly Perkins, \me, Julie Vera, Cecilia Aragon, and Adam Hyland}
   {\uwbadge{IJAAA `23}}{}
 
-\pubentry
-  {\href{https://journal.transformativeworks.org/index.php/twc/article/view/2477}{Leveraging Community Support and Platform Affordances on a Path \\ to More Active Participation: A Study of Online Fan Fiction Communities}}
+\jourentry
+  {\href{https://journal.transformativeworks.org/index.php/twc/article/view/2477}{Leveraging Community Support and Platform Affordances on a Path to More Active Participation: A Study of Online Fan Fiction Communities}}
   {\me, and Cecilia Aragon}
   {\uwbadge{TWC `24}}{}
 
 \noindent\sectionpill{Peer-Reviewed Workshop}
 
-\pubentry
-  {\href{https://sourojitghosh.github.io/publication/paper2}{Not Just Cells in a Dataset: Imagining a Human-Centered Data Science \\ Approach to Social Recommendation Algorithms}}
+\wkentry
+  {\href{https://sourojitghosh.github.io/publication/paper2}{Not Just Cells in a Dataset: Imagining a Human-Centered Data Science Approach to Social Recommendation Algorithms}}
   {\me, Andrea Figueroa, Murtaza Ali, and Cecilia Aragon}
   {\uwbadge{HCDS@CHI '22}}{New Orleans}
 
-\pubentry{\href{https://sourojitghosh.github.io/publication/paper18}{From Melting Pots to Misrepresentations: Exploring Harms in Generative AI}}
+\wkentry{\href{https://sourojitghosh.github.io/publication/paper18}{From Melting Pots to Misrepresentations: Exploring Harms in \\ Generative AI}}
   {Sanjana Gautam*, \me*, Pranav Narayanan Venkit*}
   {\uwbadge{GenAI@CHI '23}}{Yokohama}
 
-\newpage
 \noindent\sectionpill{Book Chapters}
 
 \bookchapter
@@ -422,38 +514,38 @@
   {Gendered Technology in Translation and Interpreting}
   {\me, and Srishti Chatterjee}
   {\uwbadge{Routledge `24}}
-
+\newpage
 \noindent\sectionpill{Lightly-Reviewed Conferences}
 
-\pubentry{\href{https://spir.aoir.org/ojs/index.php/spir/article/download/14055/11814}{To Screenshot or Not to Screenshot? Tensions in Representing Visual \\ Social Media Platform Posts}}
+\lrentry{\href{https://spir.aoir.org/ojs/index.php/spir/article/download/14055/11814}{To Screenshot or Not to Screenshot? Tensions in Representing Visual Social Media Platform Posts}}
 {Joseph Schafer, Brett Halperin, Julie Vera, and \me}
   {\uwbadge{AOIR '24}}{Sheffield}
 
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-93415-5_22\#citeas}{Post-Editing Vs Neural Machine Translation: A Comparative Study of \\ English $\leftrightarrow$ Mandarin Translations in Daily Conversations}}
+\lrentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-93415-5_22\#citeas}{Post-Editing Vs Neural Machine Translation: A Comparative Study of English $\leftrightarrow$ Mandarin Translations in Daily Conversations}}
     {Yanfu Liu, Cheng Guo, and \me}
   {\uwbadge{HCII '24}}{Washington, DC}
 
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-76827-9_12}{Text Characteristics Vector: Rethinking Human-Centered Sentiment Analysis \\ with  Emotion-Related Text Characteristics}}
+\lrentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-76827-9_12}{Text Characteristics Vector: Rethinking Human-Centered Sentiment Analysis with  Emotion-Related Text Characteristics}}
   {Cheng Guo, Yanfu Liu, Yue Yuan, Wuhao Zhang, and \me}
   {\uwbadge{HCII '24}}{Washington, DC}
 
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35927-9_32}{“I love you, my dear friend”: Analysing the Role of Emotions in the \\ Building of Friendships in Online Fanfiction Communities}}
+\lrentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35927-9_32}{“I love you, my dear friend”: Analysing the Role of Emotions in the Building of Friendships in Online Fanfiction Communities}}
   {\me, Niamh Froelich, and Cecilia Aragon}
   {\uwbadge{HCII '23}}{Copenhagen}
 
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35891-3_5}{“Do we like this, or do we \textit{like} like this?”: Reflections on a Human-Centered \\ Machine Learning Approach to Sentiment Analysis}}
-  {\me, , Murtaza Ali, Anna Batra, Cheng Guo, Mohit Jain, Joseph Kang, \\ Julia Kharchenko, Varun Suravajhela, Vincent Zhou, and Cecilia Aragon}
+\lrentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35891-3_5}{“Do we like this, or do we \textit{like} like this?”: Reflections on a Human-Centered Machine Learning Approach to Sentiment Analysis}}
+  {\me, Murtaza Ali, Anna Batra, Cheng Guo, Mohit Jain, Joseph Kang, \\ Julia Kharchenko, Varun Suravajhela, Vincent Zhou, and Cecilia Aragon}
   {\uwbadge{HCII '23}}{Copenhagen}
 
-\pubentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35132-7_2}{Generalized Cohen’s Kappa: A Novel Inter-rater Reliability Metric for \\ Non-Mutually Exclusive Categories}}
+\lrentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35132-7_2}{Generalized Cohen’s Kappa: A Novel Inter-rater Reliability Metric for Non-Mutually Exclusive Categories}}
   {Andrea Figueroa, \me, and Cecilia Aragon}
   {\uwbadge{HCII '23}}{Copenhagen}
 
-\pubentry{\href{https://sourojitghosh.github.io/publication/paper5}{Reflecting on Hybrid Learning in Studio-based Courses: Complications \\ and Effectiveness during the Pandemic and Beyond}}
+\lrentry{\href{https://sourojitghosh.github.io/publication/paper5}{Reflecting on Hybrid Learning in Studio-based Courses: Complications and Effectiveness during the Pandemic and Beyond}}
   {\me, and Sarah Coppola}
   {\uwbadge{HFES '22}}{Atlanta}
 
-\pubentry{\href{https://sourojitghosh.github.io/publication/paper5}{Recruitment, Admissions, Hiring, Retention, and Promotion: Mechanisms of \\ Diversity, Equity, Inclusion, and Belonging}}
+\lrentry{\href{https://sourojitghosh.github.io/publication/paper5}{Recruitment, Admissions, Hiring, Retention, and Promotion: Mechanisms of Diversity, Equity, Inclusion, and Belonging}}
   {Erin K. Chiou, Richard J. Holden, \me, Yuliana Flores, and Rod D. Roscoe}
   {\uwbadge{HFES '22}}{Atlanta}
 \newpage
@@ -472,7 +564,7 @@
 }
 
 \uwexpentry{Experimental Research Methods}{Au25}
-  {Introduced research through experimental design, hypothesis formation and testing, and statistical analysis, culiminating in formal research writing,  in a project-based format to first-time researchers with little to no prior experience in Statistics. 
+  {Introduced research through experimental design, hypothesis formation and testing, and statistical analysis, culiminating in formal research writing, in a project-based format to first-time researchers with little to no prior experience in Statistics. 
 }
 
 \uwexpentry{Introduction to User Research}{Sp25}
@@ -487,12 +579,9 @@
   {Led a writing-intensive seminar-style course on foundational concepts and topics within the field of HCI, updated existing course content to reflect emergent areas of focus, and supported students from multiple departments in their mini research explorations.
 }
 
-\uwexpentry{Concepts in Human-Computer Interaction}{Au23, Wi24}
-  {Led a writing-intensive seminar-style course on foundational concepts and topics within the field of HCI, updated existing course content to reflect emergent areas of focus, and supported students from multiple departments in their mini research explorations.
-}
+\uwexpentry{Introduction to User-Centered Design}{Au21 -- Au22}
+  {Taught project-based courses leading students through the user-centered design process including ideation, user research, prototyping and user testing, designed and delivered lectures on equitable practices in design.}
 
-\uwexpentry{Introduction to User-Centered Design}{Wi21, Au21 -- Au22}
-  {Taught 10-week project-based courses leading students through the user-centered design process including ideation, user research, prototyping and user testing, designed and delivered lectures on equitable practices in design.}
 
 \noindent\sectionpill{Teaching Assistant}\vspace{3pt}
 
@@ -510,6 +599,9 @@
   {Demonstrated techniques of accessible design through real-world examples and case studies, mentored students in building designer practices to foreground accessibility in their work, and organized in-class discussions on accessibility-related content. 
 }
 
+\uwexpentry{Introduction to User-Centered Design}{Wi22}
+  {Supported student projects on the user-centered design process including ideation, user research, prototyping and user testing, facilitated hybrid instruction, and graded student work on a 48-hr turnaround.}
+
 \noindent\underline{\large \textcolor{umnmaroon}{\textit{University of Minnesota, Twin Cities}}}\vspace{3pt}
 
 \umnexpentry{Teaching in American Classrooms}{Su20}
@@ -518,29 +610,29 @@
 \umnexpentry{Center for Writing}{Au18 -- Sp20}
   {Supervised undergraduate staff in development of writing consultation pedagogy, trained new employees in general writing consultation and understanding writer needs for specific courses, and contributed to growing the Center's homegrown database.}
 
-\section{Awards}
+\umnexpentry{Student Writing Consultation}{Au17 -- Sp20}
+  {Provided 45-minute one-on-one writing support for students of all levels at all stages of the writing process, and conducted pedagogical research in better supporting international student writers to build their confidence in American academic writing.}
 
-\uwrow{2025}{Graduate Student Equity \& Excellence Dissertation Award}{University of Washington, Seattle}
-\uwrow{2025}{Excellence in Teaching Award}{University of Washington, Seattle}
-\uwrow{2025}{Graduate School Presidential Dissertation Fellowship in the Arts, Humanities, Social Sciences, and Social Professions}{University of Washington, Seattle}
-\uwrow{2024}{Husky100, Class of 2024}{University of Washington, Seattle}
-\uwrow{2023}{Human Centered Design \& Engineering Award of Excellence}{University of Washington, Seattle}
-\uwrow{2023}{College of Engineering Teaching Award}{University of Washington, Seattle}
-\umnrow{2016-20}{Maroon Scholarship (\$11k/year)}{University of Minnesota, Twin Cities}
+\section{Awards and Fellowships}
+\uwrow{2026}{Award of Excellence in Leadership and Engagement}{\hfill Human Centered Design \& Engineering, \newline University of Washington}
+\uwrow{2025}{Equity \& Excellence Dissertation Award}{University of Washington}
+\uwrow{2025}{Excellence in Teaching Award}{University of Washington}
+\uwrow{2025}{Presidential Dissertation Fellowship in the Arts, Humanities, Social Sciences, and Social Professions}{University of Washington}
+\uwrow{2024}{Husky100, Class of 2024}{University of Washington}
+\uwrow{2023}{Award of Excellence in Teaching}{\hfill Human Centered Design \& Engineering, \newline University of Washington}
+\uwrow{2023}{Teaching Award}{\hfill College of Engineering, \newline University of Washington}
+\umnrow{2016-20}{Maroon Scholarship (\$11k/year)}{University of Minnesota}
 
 \section{Speaking Engagements and Guest Lectures}
 
 \uwrow{2026}{Panelist, AI Slop Salon}{The Hewlett Foundation}
 \uwrow{2025}{Curriculum Consultant, International Academic Digital Skills}{DEPA, Thailand}
 \uwrow{2024}{Curriculum Consultant}{Digital4Good X ICanHelp}
+\uwrow{2024}{Reviewer, International AI Safety Report}{AI Safety Institute}
 \uwrow{2024}{Panelist, Center for Teaching and Learning}{University of Washington}
 \uwrow{2024}{Guest Speaker, DEI Taskforce}{World Federation of Advertisers}
 \uwrow{2024}{Panelist, Accessible Teaching Strategies}{University of Washington}
 \uwrow{2024}{Panelist}{ABC's Good Morning America}
-
-\section{Invited Consultations}
-
-\uwrow{2024}{Reviewer, International AI Safety Report}{AI Safety Institute}
 
 \section{Media Mentions}
 
@@ -562,15 +654,14 @@
 \uwrow{2023}{\href{https://ischool.uw.edu/news/2023/10/students-investigate-how-artificial-intelligence-perpetuates-biases?fbclid=IwAR2nyV0_RiuBVnutpGhnZucRD6e837bVYqHUDzKWWB4iV8KHhj6ltDHDF4A}{Students Investigate How Artificial Intelligence \\ Perpetuates Biases}}{UW Information School Newsletter}
 \uwrow{2023}{\href{https://restofworld.org/2023/chatgpt-problems-global-language-testing/}{We tested ChatGPT in Bengali, Kurdish, and Tamil. It failed.}}{Rest of World}
 
-\section{Leadership}
+% \section{Leadership}
 % \expentry{Co-Leader, Accessible Teaching Strategies}{May 2024}
 %   {University of Washington}{}{
 %   \item Demonstrated best practices for adapting courses to be accessible to disabled students, such as practicing HyFlex learning and accommodating blind and low-vision students in traditionally visual courses.
 % }
- 
 
+\section{Reviewing}
 
-\section{Service}
 \uwrow{2026}{AAAI Annual Conference on AI, Ethics and Society}{Program Committee}
 \uwrow{2026}{ACM Journal on Responsible Computing}{Program Committee}
 \uwrow{2026}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
@@ -589,10 +680,39 @@
 \uwrow{2023}{ACM Conference on Designing Interactive Systems}{Program Committee}
 \uwrow{2022}{ACM SIGCHI Conference on Computer-Supported Cooperative Work \& Social Computing}{Program Committee}
 
-vfill
+\section{Mentorship}
+
+\noindent\sectionpill{Ph.D. Student Mentoring}\vspace{3pt}
+\begin{enumerate}
+    \item[] Nina Lutz, University of Washington [Co-author, ]
+    \item[] Kyra Wilson, University of Washington [Co-author, \menteeptr{P}{18}]
+    \item[] Murtaza Ali, University of Washington
+    \item[] Mina Zavary, University of Washington
+    \item[] Kimberly Perkins, University of Washington 
+\end{enumerate}
+
+\noindent\sectionpill{Master's Students}\vspace{3pt}
+\begin{enumerate}
+    \item[] Amogh Gupta, University of North Carolina at Chapel Hill
+    \item[] Niharika Patil, University of North Carolina at Chapel Hill
+    \item[] Fumi Tsukiyama, University of Washington 
+    \item[] Yaxuan Mao, University of Washington 
+    \item[] Hyuna Park, University of Washington 
+    \item[] 
+\end{enumerate}
+
+\noindent\sectionpill{Bacehlor's Students}\vspace{3pt}
+
+
+
+\section{Service}
+
+\vfill
 \begin{center}
   \textcolor{accentblue}{\small Up-to-date as of \today \\ Inspired by \href{https://evijit.io/assets/pdf/Avijit_CV.pdf}{Avijit Ghosh}}
 \end{center}
+
+
 
 \end{document}
 %% ── End of document ─────────────────────────────────────────
