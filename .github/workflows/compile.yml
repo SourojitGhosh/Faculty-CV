@@ -14,15 +14,34 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # 1. Compile the LaTeX file
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
 
+      # 2. Create a clean website directory so you don't upload clutter
+      - name: Prepare Pages deployment folder
+        run: |
+          mkdir public
+          cp main.pdf public/
+
+      # 3. Upload ONLY the public folder containing the PDF
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: public/
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
