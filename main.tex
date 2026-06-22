@@ -114,12 +114,6 @@
 \immediate\write\@auxout{\string\gdef\string\maxlrcount{\the\value{totalLRs}}}
 }
 
-\newcommand{\labelcvitem}[2]{
-  \protected@edef\@currentlabel{#1#2}
-  \label{cv:#1-#2}%
-}
-\newcommand{\menteeptr}[2]{\ref{cv:#1-#2}}
-
 \makeatother
 
 \providecommand{\maxpubcount}{0}
@@ -133,7 +127,6 @@
   \noindent
   \begin{minipage}[t]{0.75\linewidth}
     \numdef\thispubnum{\maxpubcount + 1 - \value{totalpubs}}
-    \labelcvitem{P}{\thispubnum}%
     \textbf{[P\thispubnum]} \large{#1}\\
     \textit{\small #2}
   \end{minipage}%
@@ -150,7 +143,6 @@
   \noindent
   \begin{minipage}[t]{0.75\linewidth}
     \numdef\thisjournum{\maxjourcount + 1 - \value{totaljournals}}
-    \labelcvitem{J}{\thisjournum}
     \textbf{[J\thisjournum]} \large{#1}\\
     \textit{\small #2}
   \end{minipage}%
@@ -166,8 +158,7 @@
   \stepcounter{totalworkshops}
   \noindent
   \begin{minipage}[t]{0.75\linewidth}
-\numdef\thisworknum{\maxwkcount + 1 - \value{totalworkshops}}%
-    \labelcvitem{W}{\thisworknum}%
+    \numdef\thisworknum{\maxwkcount + 1 - \value{totalworkshops}}%
     \textbf{[W\thisworknum]} \large{#1}\\
     \textit{\small #2}
   \end{minipage}%
@@ -184,7 +175,6 @@
   \noindent
   \begin{minipage}[t]{0.85\linewidth}
     \numdef\thischapnum{\maxchaptercount + 1 - \value{totalchapters}}%
-    \labelcvitem{B}{\thischapnum}%
     \textbf{[B\thischapnum]} \large{#1}\\
     \underline{Book Title}: \textit{#2}\par
     \vspace{2pt}
@@ -202,7 +192,6 @@
   \noindent
   \begin{minipage}[t]{0.75\linewidth}
     \numdef\thislrnum{\maxlrcount + 1 - \value{totalLRs}}%
-    \labelcvitem{LR}{\thislrnum}%
     \textbf{[LR\thislrnum]} \large{#1}\\
     \textit{\small #2}
   \end{minipage}%
@@ -223,6 +212,28 @@
   top      = 1pt, bottom = 1pt,
   left     = 2pt, right  = 2pt,
   fontupper = \color{blk}\bfseries
+}
+
+\newtcbox{\uwpill}{
+  nobeforeafter,
+  colback  = tagtxt,
+  colframe = blk,
+  boxrule  = 1.5pt,
+  arc      = 3pt,
+  top      = 1pt, bottom = 1pt,
+  left     = 2pt, right  = 2pt,
+  fontupper = \color{uwpurple}\bfseries
+}
+
+\newtcbox{\umnpill}{
+  nobeforeafter,
+  colback  = tagtxt,
+  colframe = blk,
+  boxrule  = 1.5pt,
+  arc      = 3pt,
+  top      = 1pt, bottom = 1pt,
+  left     = 2pt, right  = 2pt,
+  fontupper = \color{umnmaroon}\bfseries
 }
 
 \newcommand{\uwexpentry}[3]{%
@@ -379,8 +390,13 @@
   {\uwbadge{AIES '25}}{Madrid}
 \blfootnote{$^*$Equal Contribution}
 \pubentry
-  {\href{https://ojs.aaai.org/index.php/AIES/article/view/36750}{Bias is a Math Problem, AI Bias is a Technical Problem: 10-year \\ Literature Review of AI/LLM Bias Research Reveals Narrow \newline [Gender-Centric] Conceptions of `Bias', and Academia-Industry Gap}}
+  {\href{https://ojs.aaai.org/index.php/AIES/article/view/36613}{Bias is a Math Problem, AI Bias is a Technical Problem: 10-year \\ Literature Review of AI/LLM Bias Research Reveals Narrow \newline [Gender-Centric] Conceptions of `Bias', and Academia-Industry Gap}}
   {\me* and Kyra Wilson*}
+  {\uwbadge{AIES '25}}{Madrid}
+
+\pubentry
+  {\href{https://ojs.aaai.org/index.php/AIES/article/view/36750/38888}{Bias Amplification in Stable Diffusion’s Representation of Stigma Through Skin Tones and Their Homogeneity}}
+  {Kyra Wilson*, \me*, and Aylin Caliskan}
   {\uwbadge{AIES '25}}{Madrid}
 
 \pubentry
@@ -626,13 +642,15 @@
 \section{Speaking Engagements and Guest Lectures}
 
 \uwrow{2026}{Panelist, AI Slop Salon}{The Hewlett Foundation}
-\uwrow{2025}{Curriculum Consultant, International Academic Digital Skills}{DEPA, Thailand}
-\uwrow{2024}{Curriculum Consultant}{Digital4Good X ICanHelp}
-\uwrow{2024}{Reviewer, International AI Safety Report}{AI Safety Institute}
 \uwrow{2024}{Panelist, Center for Teaching and Learning}{University of Washington}
 \uwrow{2024}{Guest Speaker, DEI Taskforce}{World Federation of Advertisers}
 \uwrow{2024}{Panelist, Accessible Teaching Strategies}{University of Washington}
 \uwrow{2024}{Panelist}{ABC's Good Morning America}
+
+\section{Invited Consultations}
+\uwrow{2025}{Curriculum Consultant, International Academic Digital Skills}{DEPA, Thailand}
+\uwrow{2024}{Curriculum Consultant}{Digital4Good X ICanHelp}
+\uwrow{2024}{Reviewer, International AI Safety Report}{AI Safety Institute}
 
 \section{Media Mentions}
 
@@ -651,8 +669,8 @@
 \uwrow{2023}{\href{https://peopleofcolorintech.com/articles/study-exposes-alarming-biases-in-ai-image-generator-stable-diffusion-racial-gender-and-geographic-stereotypes/}{Study Exposes Alarming Biases In AI Image Generator, Stable Diffusion: Racial, Gender, And Geographic Stereotypes}}{People of Color in Tech}
 \uwrow{2023}{\href{https://www.washington.edu/news/2023/11/29/ai-image-generator-stable-diffusion-perpetuates-racial-and-gendered-stereotypes-bias/}{AI image generator Stable Diffusion perpetuates racial and gendered stereotypes, study finds}}{University of Washington News}
 \uwrow{2023}{\href{https://www.geekwire.com/2023/ai-imaging-software-generates-a-gallery-of-stereotypes-say-univ-of-washington-researchers/}{AI imaging software generates a gallery of stereotypes, \\ say Univ. of Washington researchers.}}{GeekWire}
-\uwrow{2023}{\href{https://ischool.uw.edu/news/2023/10/students-investigate-how-artificial-intelligence-perpetuates-biases?fbclid=IwAR2nyV0_RiuBVnutpGhnZucRD6e837bVYqHUDzKWWB4iV8KHhj6ltDHDF4A}{Students Investigate How Artificial Intelligence \\ Perpetuates Biases}}{UW Information School Newsletter}
-\uwrow{2023}{\href{https://restofworld.org/2023/chatgpt-problems-global-language-testing/}{We tested ChatGPT in Bengali, Kurdish, and Tamil. It failed.}}{Rest of World}
+\uwrow{2023}{\href{https://ischool.uw.edu/news/2023/10/students-investigate-how-artificial-intelligence-perpetuates-biases?fbclid=IwAR2nyV0_RiuBVnutpGhnZucRD6e837bVYqHUDzKWWB4iV8KHhj6ltDHDF4A}{Students Investigate How Artificial Intelligence \\ Perpetuates Biases}}{\hfill University of Washington, \newline Information School Newsletter}
+\uwrow{2023}{\href{https://restofworld.org/2023/chatgpt-problems-global-language-testing/}{We tested ChatGPT in Bengali, Kurdish, and Tamil. \\It failed.}}{Rest of World}
 
 % \section{Leadership}
 % \expentry{Co-Leader, Accessible Teaching Strategies}{May 2024}
@@ -684,28 +702,57 @@
 
 \noindent\sectionpill{Ph.D. Student Mentoring}\vspace{3pt}
 \begin{enumerate}
-    \item[] Nina Lutz, University of Washington [Co-author, ]
-    \item[] Kyra Wilson, University of Washington [Co-author, \menteeptr{P}{18}]
-    \item[] Murtaza Ali, University of Washington
-    \item[] Mina Zavary, University of Washington
-    \item[] Kimberly Perkins, University of Washington 
+    \item[] Nina Lutz, University of Washington [Co-author, P12]
+    \item[] Kyra Wilson, University of Washington [Co-author, P18, P19]
+    \item[] Murtaza Ali, University of Washington [Co-author, P6, LR4, W2]
+    \item[] Kimberly Perkins, University of Washington [Co-author, J2, J3, J4]
 \end{enumerate}
+\vspace{8pt}
 
 \noindent\sectionpill{Master's Students}\vspace{3pt}
 \begin{enumerate}
-    \item[] Amogh Gupta, University of North Carolina at Chapel Hill
-    \item[] Niharika Patil, University of North Carolina at Chapel Hill
+    \item[] Amogh Gupta, University of North Carolina at Chapel Hill [Co-author, P21]
+    \item[] Niharika Patil, University of North Carolina at Chapel Hill [Co-author, P21]
     \item[] Fumi Tsukiyama, University of Washington 
     \item[] Yaxuan Mao, University of Washington 
-    \item[] Hyuna Park, University of Washington 
-    \item[] 
+    \item[] Hyuna Park, University of Washington  
+    \item[] Maxwell Coppock, University of Washington  
 \end{enumerate}
 
+\vspace{8pt}
 \noindent\sectionpill{Bacehlor's Students}\vspace{3pt}
-
-
+\begin{enumerate}
+    \item[] Cheng Guo, University of Washington [Co-author, LR4, LR6, LR7]
+    \item[] Yanfu Liu, University of Washington [Co-author, LR6, LR7] 
+    \item[] Alisha Bose, University of Washington
+    \item[] Sehrish Daud, University of Washington
+    \item[] Deveshi Modi, University of Washington
+    \item[] Rayyan T. Cunningham, University of Washington
+    \item[] Mina Zavary, University of Washington [Co-author, P9] 
+    \item[] Hiromu Tsugiyama, University of Washington 
+    \item[] Anjinee Nair, University of Washington 
+    \item[] Lushan Wang, University of Washington 
+    \item[] Chris Sanders, University of Washington  
+    
+\end{enumerate}
 
 \section{Service}
+
+\noindent\uwpill{University of Washington, Seattle}\vspace{3pt}
+
+\noindent \raisebox{-2pt}{\uwbadge{2025-26}}\hspace{5pt} Human Centered Design \& Engineering Broadening Participation in Computing Task Force \par
+\noindent \raisebox{-2pt}{\uwbadge{2023-26}}\hspace{5pt} Human Centered Design \& Engineering Bachelor's Program Committee \par
+\noindent \raisebox{-2pt}{\uwbadge{2022-26}}\hspace{5pt} Human Centered Design \& Engineering Diversity, Equity, \& Inclusion Committee \par
+\noindent \raisebox{-2pt}{\uwbadge{2021-26}}\hspace{5pt} Human Centered Design \& Engineering Graduate Students' Association \par
+\noindent \raisebox{-2pt}{\uwbadge{2021-25}}\hspace{5pt} Human Centered Design \& Engineering PhD Admissions Ambassador \par
+\noindent \raisebox{-2pt}{\uwbadge{2021-25}}\hspace{5pt} Human Centered Design \& Engineering Chair's Advisory Board \par
+\noindent \raisebox{-2pt}{\uwbadge{2020-22}}\hspace{5pt} Human Centered Design \& Engineering Sustained Dialogue Moderators Manager \par
+
+% \vspace{8pt}
+% \noindent\umnpill{University of Minnesota, Twin Cities}\vspace{3pt}
+
+% \noindent \raisebox{-2pt}{\umnbadge{2018-20}}\hspace{5pt} Vice President, Model United Nations Club\\
+
 
 \vfill
 \begin{center}
