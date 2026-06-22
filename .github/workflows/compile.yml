@@ -24,7 +24,7 @@ jobs:
       - name: Prepare Pages deployment folder
         run: |
           mkdir public
-          cp main.pdf public/
+          cp main.pdf public/Ghosh_Sourojit_CV.pdf
 
       # 3. Upload ONLY the public folder containing the PDF
       - name: Upload Pages artifact
