@@ -235,19 +235,43 @@
 }
 
 \newcommand{\uwexpentry}[3]{%
-  \noindent\textbf{#1}\hfill{\textcolor{uwpurple}{\textit{#2}}}\par
-  \begin{minipage}[t]{0.85\linewidth} {#3} \end{minipage}\par
+  \noindent
+  \begin{minipage}[t]{0.80\linewidth}
+    \textbf{#1}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.18\linewidth}\raggedleft
+    \textcolor{uwpurple}{\textit{#2}}
+  \end{minipage}\par\vspace{2pt}
+  \noindent
+  \begin{minipage}[t]{0.85\linewidth} #3 \end{minipage}\par
   \vspace{8pt}
 }
 
 \newcommand{\umnexpentry}[3]{%
-  \noindent\textbf{#1}\hfill{\textcolor{umnmaroon}{\textit{#2}}}\par
-  \begin{minipage}[t]{0.85\linewidth} {#3} \end{minipage}\par
+  \noindent
+  \begin{minipage}[t]{0.80\linewidth}
+    \textbf{#1}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.18\linewidth}\raggedleft
+    \textcolor{umnmaroon}{\textit{#2}}
+  \end{minipage}\par\vspace{2pt}
+  \noindent
+  \begin{minipage}[t]{0.85\linewidth} #3 \end{minipage}\par
   \vspace{8pt}
 }
 
 \newcommand{\uncexpentry}[3]{%
-  \noindent\textbf{#1}\hfill{ \textcolor{accentblue}{\textit{#2}}}\par
+  \noindent
+  \begin{minipage}[t]{0.80\linewidth}
+    \textbf{#1}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.18\linewidth}\raggedleft
+    \textcolor{accentblue}{\textit{#2}}
+  \end{minipage}\par\vspace{2pt}
+  \noindent
   \begin{minipage}[t]{0.85\linewidth} #3 \end{minipage}\par
   \vspace{8pt}
 }
@@ -345,7 +369,10 @@
 
 \noindent\large{University of Washington}\hfill\textcolor{uwpurple}{\textit{Seattle, WA}}\par
 \noindent\textit{Ph.D. in Human-Centered Design and Engineering}\hfill\textcolor{uwpurple}{\textit{2020--2026}}\\
-\textit{(Advised by Dr.\ Cecilia Aragon)}\par
+\textit{(Advised by Dr.\ Cecilia Aragon)}\\
+
+\vspace{-15pt}
+Doctoral Thesis: \textbf{Exploring Representational Harms of Generative AI \\ Systems upon Historically  Marginalized Populations often Overlooked \\ in Fairness Research}\par
 
 \vspace{2pt}
 
@@ -357,16 +384,16 @@
 \noindent\large{University of Minnesota, Twin Cities}\hfill\textcolor{umnmaroon}{\textit{Minneapolis, MN}}\par
 \noindent\textit{B.Sc.\ in Computer Science, Minor in Creative Writing}\hfill\textcolor{umnmaroon}{\textit{2016--2020}}\par
 
-\section{Doctoral Thesis}
+% \section{Doctoral Thesis}
 
-\noindent\textbf{\large{Exploring Representational Harms of Generative AI Systems upon \\  Historically  Marginalized Populations often Overlooked in Fairness Research}}\hfill\textcolor{uwpurple}{\textit{June 2026}}\par
+% \noindent\textbf{\large{Exploring Representational Harms of Generative AI Systems upon \\  Historically  Marginalized Populations often Overlooked in Fairness Research}}\hfill\textcolor{uwpurple}{\textit{June 2026}}\par
 
-\begin{itemize}[leftmargin=1.5em, itemsep=2pt, topsep=4pt]
-  \item GAI tools replicate harmful stereotypes, consistently overlooking vast sections of \\ historically marginalized populations in fairness research, exposing critical gaps in the field.
-  \item To demonstrate this, I present three case studies examining gender bias in low-resource language translation, Western stereotyping of Indian culture in text-to-image tools, and ``castelessness" in my study of AI representations of caste-oppressed communities.
-  \item Together, these findings lead me to motivate a broader, more expansive research agenda toward inclusive AI fairness practices and meaningful social good for overlooked communities worldwide.
-\end{itemize}
-\newpage
+% \begin{itemize}[leftmargin=1.5em, itemsep=2pt, topsep=4pt]
+%   \item GAI tools replicate harmful stereotypes, consistently overlooking vast sections of \\ historically marginalized populations in fairness research, exposing critical gaps in the field.
+%   \item To demonstrate this, I present three case studies examining gender bias in low-resource language translation, Western stereotyping of Indian culture in text-to-image tools, and ``castelessness" in my study of AI representations of caste-oppressed communities.
+%   \item Together, these findings lead me to motivate a broader, more expansive research agenda toward inclusive AI fairness practices and meaningful social good for overlooked communities worldwide.
+% \end{itemize}
+% \newpage
 \section{Publications}
 
 \noindent\sectionpill{Peer-Reviewed Publications}
@@ -530,7 +557,7 @@
   {Gendered Technology in Translation and Interpreting}
   {\me, and Srishti Chatterjee}
   {\uwbadge{Routledge `24}}}
-\newpage
+
 \noindent\sectionpill{Lightly-Reviewed Conferences}
 
 \href{https://spir.aoir.org/ojs/index.php/spir/article/download/14055/11814}{\lrentry
@@ -618,7 +645,7 @@
 \uwexpentry{Inclusive and Accessible Design}{Wi23}
   {Guided students through designing for users with disabilities such as vision, hearing, mobility, or invisible disabilities, and developed guest lectures on recognizing privilege within design spaces and working with communities one does not identify with. 
 }
-\newpage
+
 \uwexpentry{Introduction to Inclusive Design}{Su21}
   {Demonstrated techniques of accessible design through real-world examples and case studies, mentored students in building designer practices to foreground accessibility in their work, and organized in-class discussions on accessibility-related content. 
 }
@@ -659,7 +686,7 @@
 \uwrow{2024}{Panelist, Research \& Data Science in Fandom}{Geek Girl Con}
 
 \vspace{8pt}
-
+\newpage
 \noindent\sectionpill{Guest Lectures}\vspace{3pt}
 
 \uwrow{2026}{Bias against Marginalized Populations in AI Systems}{INFO 200}
@@ -714,12 +741,12 @@
 \uwrow{2024}{Annual Conference, Association of Internet Researchers}{Program Committee}
 \uwrow{2024}{Annual Conference, American Society of \\ Engineering Education}{Program Committee}
 \uwrow{2024}{ACM Conference on Designing Interactive Systems}{Program Committee}
-\uwrow{2024}{ACM Conference on Fairness, Accountability and Transparency}{Program Committee}
+\uwrow{2024}{ACM Conference on Fairness, Accountability \\ and Transparency}{Program Committee}
 \uwrow{2023}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
 \uwrow{2023}{ACM Conference on Fairness, Accountability \\ and Transparency}{Program Committee}
 \uwrow{2023}{ACM Conference on Designing Interactive Systems}{Program Committee}
 \uwrow{2022}{ACM SIGCHI Conference on Computer-Supported \\ Cooperative Work \& Social Computing}{Program Committee}
-
+\newpage
 \section{Mentorship}
 
 \noindent\sectionpill{Ph.D. Students}\vspace{3pt}
