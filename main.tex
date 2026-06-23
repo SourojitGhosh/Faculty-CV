@@ -137,7 +137,7 @@
   \vspace{8pt}
 }
 
-\newcommand{\jourentry}[4]{%
+\newcommand{\jourentry}[3]{%
   \stepcounter{totaljournals}
   \noindent
   \begin{minipage}[t]{0.75\linewidth}
@@ -148,7 +148,6 @@
   \hfill
   \begin{minipage}[t]{0.24\linewidth}\raggedleft
     \raisebox{-5pt}{#3}\\[2pt]
-    \textcolor{lightgray}{\footnotesize #4}
   \end{minipage}
   \vspace{8pt}
 }
@@ -372,197 +371,207 @@
 
 \noindent\sectionpill{Peer-Reviewed Publications}
 
-\pubentry
-  {\href{https://dl.acm.org/doi/10.1145/3805689.3812232}{What if AI systems weren't Chatbots?}}
-  {\me, Pranav Narayanan Venkit, Sanjana Gautam, and Avijit Ghosh}
-  {\uwbadge{FAccT '26}}{Montreal}
+\href{https://dl.acm.org/doi/10.1145/3805689.3812232}{\pubentry
+  {What if AI systems weren't Chatbots?}
+  {\me*, Pranav Narayanan Venkit, Sanjana Gautam, and Avijit Ghosh}
+  {\uwbadge{FAccT '26}}{Montreal}}
+{\renewcommand{\thefootnote}{}\footnotetext{$^*$Equal Contribution}}
  
-\pubentry
-  {\href{https://dl.acm.org/doi/10.1145/3805689.3812394}{Compounding Disadvantage: Auditing Intersectional Bias in LLM-Generated  Explanations Across Indian and American STEM Education}}
+\href{https://dl.acm.org/doi/10.1145/3805689.3812394}{\pubentry
+  {Compounding Disadvantage: Auditing Intersectional Bias in LLM-Generated  Explanations Across Indian and American STEM Education}
   {Amogh Gupta, Niharika Patil, \me, and Snehalkumar Gaikwad}
-  {\uwbadge{FAccT '26}}{Montreal}
+  {\uwbadge{FAccT '26}}{Montreal}}
  
-\pubentry
-  {\href{https://ojs.aaai.org/index.php/AIES/article/view/36614}{Documenting Patterns of Exoticism of Marginalized Populations \newline within Text-to-Image Generators}}
+\href{https://ojs.aaai.org/index.php/AIES/article/view/36614}{\pubentry{Documenting Patterns of Exoticism of Marginalized Populations \newline within Text-to-Image Generators}
   {\me, Sanjana Gautam*, Pranav Narayanan Venkit*, Avijit Ghosh}
-  {\uwbadge{AIES '25}}{Madrid}
-\blfootnote{$^*$Equal Contribution}
-\pubentry
-  {\href{https://ojs.aaai.org/index.php/AIES/article/view/36613}{Bias is a Math Problem, AI Bias is a Technical Problem: 10-year \\ Literature Review of AI/LLM Bias Research Reveals Narrow \newline [Gender-Centric] Conceptions of `Bias', and Academia-Industry Gap}}
-  {\me* and Kyra Wilson*}
-  {\uwbadge{AIES '25}}{Madrid}
-
-\pubentry
-  {\href{https://ojs.aaai.org/index.php/AIES/article/view/36750/38888}{Bias Amplification in Stable Diffusion’s Representation of Stigma Through Skin Tones and Their Homogeneity}}
-  {Kyra Wilson*, \me*, and Aylin Caliskan}
-  {\uwbadge{AIES '25}}{Madrid}
-
-\pubentry
-    {\href{https://peer.asee.org/empowering-engineering-graduates-to-contribute-towards-designing-safer-generative-ai-tools-through-an-ethics-course}{Empowering Engineering Graduates to Contribute towards Designing \\ Safer Generative AI Tools through an Ethics Course}}
-    {\me, and Sarah Coppola}
-    {\uwbadge{ASEE '25}}{Montreal}
-
-\pubentry
-    {\href{https://peer.asee.org/integrating-theory-and-practice-into-a-design-foundations-course}{Integrating Theory and Practice into a Design Foundations Course}}
-    {\me, Arpita Bhattacharya, and Sarah Coppola}
-    {\uwbadge{ASEE '25}}{Montreal}
-
-\pubentry
-    {\href{https://dl.acm.org/doi/10.1145/3706598.3713666}{``They’ve Over-Emphasized That One Search”: Controlling Unwanted \\ Content on TikTok's For You Page}}
-    {Julie Vera*, and \me*}
-    {\uwbadge{CHI '25}}{Yokohama}
-    
-\pubentry
-  {\href{https://ojs.aaai.org/index.php/AIES/article/view/31652}{Interpretations, Representations, and Stereotypes of Caste within \newline Text-to-Image Generators}}
-  {\me}
-  {\uwbadge{AIES '24}}{San Jose}
-
-\pubentry
-  {\href{https://ojs.aaai.org/index.php/AIES/article/view/31650}{``I don't see myself represented here at all": User Experiences of \newline Stable Diffusion Outputs Containing Representational Harms across \newline Gender Identities and Nationalities}}
-  {\me, Pranav Narayanan Venkit*, Sanjana Gautam*, Shomir Wilson, \\ and Aylin Caliskan}
-  {\uwbadge{AIES '24}}{San Jose}
-
-\pubentry
-  {\href{https://ojs.aaai.org/index.php/AIES/article/view/31651}{Do Generative AI Models Output Harm While Representing \newline Non-western Cultures: Evidence from a Community-Centered Approach}}
-  {\me, Nina Lutz*, and Aylin Caliskan}
-  {\uwbadge{AIES '24}}{San Jose}
+  {\uwbadge{AIES '25}}{Madrid}}
   
-\pubentry
-    {\href{https://peer.asee.org/chatgpt-as-a-tool-for-equitable-education-in-engineering-classes}{ChatGPT as a Tool for Equitable Education in Engineering Classes}}
+%\blfootnote{$^*$Equal Contribution}
+\href{https://ojs.aaai.org/index.php/AIES/article/view/36613}{\pubentry
+  {Bias is a Math Problem, AI Bias is a Technical Problem: 10-year \\ Literature Review of AI/LLM Bias Research Reveals Narrow \newline [Gender-Centric] Conceptions of `Bias', and Academia-Industry Gap}
+  {\me* and Kyra Wilson*}
+  {\uwbadge{AIES '25}}{Madrid}}
+
+\href{https://ojs.aaai.org/index.php/AIES/article/view/36750/38888}{\pubentry
+  {Bias Amplification in Stable Diffusion’s Representation of Stigma Through Skin Tones and Their Homogeneity}
+  {Kyra Wilson*, \me*, and Aylin Caliskan}
+  {\uwbadge{AIES '25}}{Madrid}}
+
+\href{https://peer.asee.org/empowering-engineering-graduates-to-contribute-towards-designing-safer-generative-ai-tools-through-an-ethics-course}{\pubentry
+    {Empowering Engineering Graduates to Contribute towards Designing \\ Safer Generative AI Tools through an Ethics Course}
+    {\me, and Sarah Coppola}
+    {\uwbadge{ASEE '25}}{Montreal}}
+
+\href{https://peer.asee.org/integrating-theory-and-practice-into-a-design-foundations-course}{\pubentry
+    {Integrating Theory and Practice into a Design Foundations Course}
+    {\me, Arpita Bhattacharya, and Sarah Coppola}
+    {\uwbadge{ASEE '25}}{Montreal}}
+
+\href{https://dl.acm.org/doi/10.1145/3706598.3713666}{\pubentry
+    {``They’ve Over-Emphasized That One Search”: Controlling Unwanted \\ Content on TikTok's For You Page}
+    {Julie Vera*, and \me*}
+    {\uwbadge{CHI '25}}{Yokohama}}
+    
+\href{https://ojs.aaai.org/index.php/AIES/article/view/31652}{\pubentry
+  {Interpretations, Representations, and Stereotypes of Caste within \newline Text-to-Image Generators}
+  {\me}
+  {\uwbadge{AIES '24}}{San Jose}}
+
+\href{https://ojs.aaai.org/index.php/AIES/article/view/31650}{\pubentry
+  {``I don't see myself represented here at all": User Experiences of \newline Stable Diffusion Outputs Containing Representational Harms across \newline Gender Identities and Nationalities}
+  {\me, Pranav Narayanan Venkit*, Sanjana Gautam*, Shomir Wilson, \\ and Aylin Caliskan}
+  {\uwbadge{AIES '24}}{San Jose}}
+
+\href{https://ojs.aaai.org/index.php/AIES/article/view/31651}{\pubentry
+  {Do Generative AI Models Output Harm While Representing \newline Non-western Cultures: Evidence from a Community-Centered Approach}
+  {\me, Nina Lutz*, and Aylin Caliskan}
+  {\uwbadge{AIES '24}}{San Jose}}
+  
+\href{https://peer.asee.org/chatgpt-as-a-tool-for-equitable-education-in-engineering-classes}{\pubentry
+    {ChatGPT as a Tool for Equitable Education in Engineering Classes}
     {\me}
-    {\uwbadge{ASEE '24}}{Portland}
+    {\uwbadge{ASEE '24}}{Portland}}
 
-\pubentry
-    {\href{https://peer.asee.org/reflecting-on-adapting-visual-oriented-classes-for-blind-and-low-vision-students}{Reflecting on Adapting Visual-Oriented Classes for Blind and Low-Vision Students}}
+\href{https://peer.asee.org/reflecting-on-adapting-visual-oriented-classes-for-blind-and-low-vision-students}{\pubentry
+    {Reflecting on Adapting Visual-Oriented Classes for Blind and Low-Vision Students}
     {\me, Kunal Mehta, Maxwell Coppock, and Sarah Coppola}
-    {\uwbadge{ASEE '24}}{Portland}
+    {\uwbadge{ASEE '24}}{Portland}}
 
-\pubentry
-    {\href{https://peer.asee.org/co-creating-inclusion-designing-a-living-inclusive-teaching-toolkit}{Co-Creating Inclusion: Designing a Living Inclusive Teaching Toolkit}}
+\href{https://peer.asee.org/co-creating-inclusion-designing-a-living-inclusive-teaching-toolkit}{\pubentry
+    {Co-Creating Inclusion: Designing a Living Inclusive Teaching Toolkit}
     {Mina Zavary*, and \me*}
-    {\uwbadge{ASEE '24}}{Portland}
+    {\uwbadge{ASEE '24}}{Portland}}
 
-\pubentry
-    {\href{https://dl.designresearchsociety.org/drs-conference-papers/drs2024/researchpapers/331/}{This Class Isn’t Designed For Me: Recognizing Ableist Trends In \\ Design Education, And Redesigning For An Inclusive And Sustainable Future}}
+\href{https://dl.designresearchsociety.org/drs-conference-papers/drs2024/researchpapers/331/}{\pubentry
+    {This Class Isn’t Designed For Me: Recognizing Ableist Trends In \\ Design Education, And Redesigning For An Inclusive And Sustainable Future}
     {\me, and Sarah Coppola}
-    {\uwbadge{DRS '24}}{Boston}
+    {\uwbadge{DRS '24}}{Boston}}
 
-\pubentry
-  {\href{https://aclanthology.org/2023.findings-emnlp.465/}{“Person” == Light-skinned, Western Man, and Sexualization of \\ Women of Color: Stereotypes in Stable Diffusion}}
+\href{https://aclanthology.org/2023.findings-emnlp.465/}{\pubentry
+  {“Person” == Light-skinned, Western Man, and Sexualization of \\ Women of Color: Stereotypes in Stable Diffusion}
   {\me, and Aylin Caliskan}
-  {\uwbadge{EMNLP '23}}{Singapore City}
+  {\uwbadge{EMNLP '23}}{Singapore City}}
 
-\pubentry
-  {\href{http://camps.aptaracorp.com/ACM_PMS/PMS/ACM/ICER23V1/14/38bc1875-03fe-11ee-b37c-16bb50361d1f/OUT/icer23v1-14.html}{Taking Stock of Concept Inventories in Computing Education: \\ A Systematic Literature Review}}
+\href{http://camps.aptaracorp.com/ACM_PMS/PMS/ACM/ICER23V1/14/38bc1875-03fe-11ee-b37c-16bb50361d1f/OUT/icer23v1-14.html}{\pubentry
+  {Taking Stock of Concept Inventories in Computing Education: \\ A Systematic Literature Review}
   {Murtaza Ali, \me, Prerna Rao, Raveena Dhegaskar, Sophia Jawort, \\ Alix Medler, Mengqi Shi, and Sayamindu Dasgupta}
-  {\uwbadge{ICER '23}}{Chicago}
+  {\uwbadge{ICER '23}}{Chicago}}
 
-\pubentry
-  {\href{https://dl.acm.org/doi/10.1145/3600211.3604672}{ChatGPT Perpetuates Gender Bias in Machine Translation and \newline Ignores Non-Gendered Pronouns: Findings across Bengali and \newline Five other Low-Resource Languages}}
+\href{https://dl.acm.org/doi/10.1145/3600211.3604672}{\pubentry
+  {ChatGPT Perpetuates Gender Bias in Machine Translation and \newline Ignores Non-Gendered Pronouns: Findings across Bengali and \newline Five other Low-Resource Languages}
   {\me, and Aylin Caliskan}
-  {\uwbadge{AIES '23}}{Montreal}
+  {\uwbadge{AIES '23}}{Montreal}}
 
-\pubentry
-    {\href{https://sourojitghosh.github.io/publication/paper10}{Making a Case for HyFlex Learning in Design Engineering Classes}}
+\href{https://sourojitghosh.github.io/publication/paper10}{\pubentry
+    {Making a Case for HyFlex Learning in Design Engineering Classes}
     {\me, and Sarah Coppola}
-    {\uwbadge{ASEE '23}}{Baltimore}
+    {\uwbadge{ASEE '23}}{Baltimore}}
 
-\pubentry
- {\href{https://sourojitghosh.github.io/publication/paper6}{Establishing TikTok as a Platform for Informal Learning: Evidence from Mixed-Methods Analysis of Creators and Viewers}}
+\href{https://sourojitghosh.github.io/publication/paper6}{\pubentry
+ {Establishing TikTok as a Platform for Informal Learning: Evidence from Mixed-Methods Analysis of Creators and Viewers}
   {\me, and Andrea Figueora}
-  {\uwbadge{HICSS '23}}{Maui}  
+  {\uwbadge{HICSS '23}}{Maui}  }
 
-\pubentry
- {\href{https://sourojitghosh.github.io/files/3532106.3533449.pdf}{Slanted Speculations:: Material Encounters with Algorithmic Bias}}
+\href{https://sourojitghosh.github.io/files/3532106.3533449.pdf}{\pubentry
+ {Slanted Speculations:: Material Encounters with Algorithmic Bias}
   {Gabrielle Benabdallah, Ashten Alexander, \me, Chariell Glogovac-Smith, \\ Lacey Jacoby, Caitlin Lustig, Anh Nguyen, Anna Parkhurst, Kathryn Reyes, Neilly H. Tan, \\ Edward Wolcher, Afroditi Psarra, and Daniela Rosner}
-  {\uwbadge{DIS '22}}{Remote}
+  {\uwbadge{DIS '22}}{Remote}}
 
-\pubentry
-  {\href{https://dl.acm.org/doi/pdf/10.1145/3434184}{Patterns of Patient and Caregiver Mutual Support Connections \\ in an Online Health Community}}
+\href{https://dl.acm.org/doi/pdf/10.1145/3434184}{\pubentry
+  {Patterns of Patient and Caregiver Mutual Support Connections \\ in an Online Health Community}
   {Zachary Levonian, Marco Dow, Drew Erikson, \me, Hannah Miller Hillberg, \\ Saumik Narayanan, Loren Terveen, and Svetlana Yarosh}
-  {\umnbadge{CSCW '20}}{Remote}
+  {\umnbadge{CSCW '20}}{Remote}}
 
 \noindent\sectionpill{Peer-Reviewed Journals}
 
-\jourentry
-  {\href{https://commons.erau.edu/cgi/viewcontent.cgi?article=2025&context=jaaer}{`I’m a Pilot First, Female Second': Why Flight Deck Gender Imbalance \\ Persists and the Case for Allyship}}
+\href{https://commons.erau.edu/cgi/viewcontent.cgi?article=2025&context=jaaer}{\jourentry
+  {`I’m a Pilot First, Female Second': Why Flight Deck Gender Imbalance \\ Persists and the Case for Allyship}
   {Kimberly Perkins, Rachael Merola, \me, and Cecilia Aragon}
-  {\uwbadge{JAAER `25}}{}
+  {\uwbadge{JAAER `25}}}
 
-\jourentry
-  {\href{https://doi.org/10.58940/2329-258X.2022}{Interpersonal Skills in a Sociotechnical System: A Training Gap in Flight Decks}}
+\href{https://doi.org/10.58940/2329-258X.2022}{\jourentry
+  {Interpersonal Skills in a Sociotechnical System: A Training Gap in Flight Decks}
   {Kimberly Perkins, \me, and Crystall Hall}
-  {\uwbadge{JAAER `24}}{}
+  {\uwbadge{JAAER `24}}}
 
-\jourentry
-  {\href{https://sourojitghosh.github.io/publication/paper4}{The Persistence of Safety Silence: How Flight Deck Microcultures Influence the Efficacy of Crew Resource Management}}
+\href{https://sourojitghosh.github.io/publication/paper4}{\jourentry
+  {The Persistence of Safety Silence: How Flight Deck Microcultures Influence the Efficacy of Crew Resource Management}
   {Kimberly Perkins, \me, Julie Vera, Cecilia Aragon, and Adam Hyland}
-  {\uwbadge{IJAAA `23}}{}
+  {\uwbadge{IJAAA `23}}}
 
-\jourentry
-  {\href{https://journal.transformativeworks.org/index.php/twc/article/view/2477}{Leveraging Community Support and Platform Affordances on a Path to More Active Participation: A Study of Online Fan Fiction Communities}}
+\href{https://journal.transformativeworks.org/index.php/twc/article/view/2477}{\jourentry
+  {Leveraging Community Support and Platform Affordances on a Path to More Active Participation: A Study of Online Fan Fiction Communities}
   {\me, and Cecilia Aragon}
-  {\uwbadge{TWC `24}}{}
+  {\uwbadge{TWC `24}}}
 
 \noindent\sectionpill{Peer-Reviewed Workshop}
 
-\wkentry
-  {\href{https://sourojitghosh.github.io/publication/paper2}{Not Just Cells in a Dataset: Imagining a Human-Centered Data Science Approach to Social Recommendation Algorithms}}
+\href{https://sourojitghosh.github.io/publication/paper2}{\wkentry
+  {Not Just Cells in a Dataset: Imagining a Human-Centered Data Science Approach to Social Recommendation Algorithms}
   {\me, Andrea Figueroa, Murtaza Ali, and Cecilia Aragon}
-  {\uwbadge{HCDS@CHI '22}}{New Orleans}
+  {\uwbadge{HCDS@CHI '22}}{New Orleans}}
 
-\wkentry{\href{https://sourojitghosh.github.io/publication/paper18}{From Melting Pots to Misrepresentations: Exploring Harms in \\ Generative AI}}
+\href{https://sourojitghosh.github.io/publication/paper18}{\wkentry
+  {From Melting Pots to Misrepresentations: Exploring Harms in \\ Generative AI}
   {Sanjana Gautam*, \me*, Pranav Narayanan Venkit*}
-  {\uwbadge{GenAI@CHI '23}}{Yokohama}
+  {\uwbadge{GenAI@CHI '23}}{Yokohama}}
 % \newpage
 
 \noindent\sectionpill{Book Chapters}
 
-\bookchapter
-  {\href{https://sourojitghosh.github.io/publication/paper25}{Machine Translation, Large Language Models, and Generative AI  \\ in the University Classroom: Toward a Pedagogy of Care}}
+\href{https://sourojitghosh.github.io/publication/paper25}{\bookchapter
+  {Machine Translation, Large Language Models, and Generative AI  \\ in the University Classroom: Toward a Pedagogy of Care}
   {The Social Impact of Automating Translation}
   {\me, and Srishti Chatterjee}
-  {\uwbadge{Routledge `24}}
+  {\uwbadge{Routledge `24}}}
 
-\bookchapter
-  {\href{https://arxiv.org/abs/2401.13165}{Misgendering and Assuming Gender in Machine Translation when \\  Working with Low-Resource Languages}}
+\href{https://arxiv.org/abs/2401.13165}{\bookchapter
+  {Misgendering and Assuming Gender in Machine Translation when \\  Working with Low-Resource Languages}
   {Gendered Technology in Translation and Interpreting}
   {\me, and Srishti Chatterjee}
-  {\uwbadge{Routledge `24}}
-
+  {\uwbadge{Routledge `24}}}
+\newpage
 \noindent\sectionpill{Lightly-Reviewed Conferences}
 
-\lrentry{\href{https://spir.aoir.org/ojs/index.php/spir/article/download/14055/11814}{To Screenshot or Not to Screenshot? Tensions in Representing Visual Social Media Platform Posts}}
-{Joseph Schafer, Brett Halperin, Julie Vera, and \me}
-  {\uwbadge{AOIR '24}}{Sheffield}
+\href{https://spir.aoir.org/ojs/index.php/spir/article/download/14055/11814}{\lrentry
+    {To Screenshot or Not to Screenshot? Tensions in Representing Visual Social Media Platform Posts}
+    {Joseph Schafer, Brett Halperin, Julie Vera, and \me}
+    {\uwbadge{AOIR '24}}{Sheffield}}
 
-\lrentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-93415-5_22\#citeas}{Post-Editing Vs Neural Machine Translation: A Comparative Study of English $\leftrightarrow$ Mandarin Translations in Daily Conversations}}
+\href{https://link.springer.com/chapter/10.1007/978-3-031-93415-5_22\#citeas}{\lrentry
+    {Post-Editing Vs Neural Machine Translation: A Comparative Study of English $\leftrightarrow$ Mandarin Translations in Daily Conversations}
     {Yanfu Liu, Cheng Guo, and \me}
-  {\uwbadge{HCII '24}}{Washington, DC}
+    {\uwbadge{HCII '24}}{Washington, DC}}
 
-\lrentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-76827-9_12}{Text Characteristics Vector: Rethinking Human-Centered Sentiment Analysis with  Emotion-Related Text Characteristics}}
-  {Cheng Guo, Yanfu Liu, Yue Yuan, Wuhao Zhang, and \me}
-  {\uwbadge{HCII '24}}{Washington, DC}
+\href{https://link.springer.com/chapter/10.1007/978-3-031-76827-9_12}{\lrentry
+    {Text Characteristics Vector: Rethinking Human-Centered Sentiment Analysis with  Emotion-Related Text Characteristics}
+      {Cheng Guo, Yanfu Liu, Yue Yuan, Wuhao Zhang, and \me}
+      {\uwbadge{HCII '24}}{Washington, DC}}
 
-\lrentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35927-9_32}{“I love you, my dear friend”: Analysing the Role of Emotions in the Building of Friendships in Online Fanfiction Communities}}
-  {\me, Niamh Froelich, and Cecilia Aragon}
-  {\uwbadge{HCII '23}}{Copenhagen}
+\href{https://link.springer.com/chapter/10.1007/978-3-031-35927-9_32}{\lrentry
+    {“I love you, my dear friend”: Analysing the Role of Emotions in the Building of Friendships in Online Fanfiction Communities}
+    {\me, Niamh Froelich, and Cecilia Aragon}
+    {\uwbadge{HCII '23}}{Copenhagen}}
 
-\lrentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35891-3_5}{“Do we like this, or do we \textit{like} like this?”: Reflections on a Human-Centered Machine Learning Approach to Sentiment Analysis}}
-  {\me, Murtaza Ali, Anna Batra, Cheng Guo, Mohit Jain, Joseph Kang, \\ Julia Kharchenko, Varun Suravajhela, Vincent Zhou, and Cecilia Aragon}
-  {\uwbadge{HCII '23}}{Copenhagen}
+\href{https://link.springer.com/chapter/10.1007/978-3-031-35891-3_5}{\lrentry
+    {“Do we like this, or do we \textit{like} like this?”: Reflections on a Human-Centered Machine Learning Approach to Sentiment Analysis}
+    {\me, Murtaza Ali, Anna Batra, Cheng Guo, Mohit Jain, Joseph Kang, \\ Julia Kharchenko, Varun Suravajhela, Vincent Zhou, and Cecilia Aragon}
+    {\uwbadge{HCII '23}}{Copenhagen}}
 
-\lrentry{\href{https://link.springer.com/chapter/10.1007/978-3-031-35132-7_2}{Generalized Cohen’s Kappa: A Novel Inter-rater Reliability Metric for Non-Mutually Exclusive Categories}}
-  {Andrea Figueroa, \me, and Cecilia Aragon}
-  {\uwbadge{HCII '23}}{Copenhagen}
+\href{https://link.springer.com/chapter/10.1007/978-3-031-35132-7_2}{\lrentry
+    {Generalized Cohen’s Kappa: A Novel Inter-rater Reliability Metric for Non-Mutually Exclusive Categories}
+    {Andrea Figueroa, \me, and Cecilia Aragon}
+    {\uwbadge{HCII '23}}{Copenhagen}}
 
-\lrentry{\href{https://sourojitghosh.github.io/publication/paper5}{Reflecting on Hybrid Learning in Studio-based Courses: Complications and Effectiveness during the Pandemic and Beyond}}
-  {\me, and Sarah Coppola}
-  {\uwbadge{HFES '22}}{Atlanta}
+\href{https://sourojitghosh.github.io/publication/paper5}{\lrentry    
+    {Reflecting on Hybrid Learning in Studio-based Courses: Complications and Effectiveness during the Pandemic and Beyond}
+    {\me, and Sarah Coppola}
+    {\uwbadge{HFES '22}}{Atlanta}}
 
-\lrentry{\href{https://sourojitghosh.github.io/publication/paper5}{Recruitment, Admissions, Hiring, Retention, and Promotion: Mechanisms of Diversity, Equity, Inclusion, and Belonging}}
-  {Erin K. Chiou, Richard J. Holden, \me, Yuliana Flores, and Rod D. Roscoe}
-  {\uwbadge{HFES '22}}{Atlanta}
+\href{https://sourojitghosh.github.io/publication/paper5}{\lrentry
+    {Recruitment, Admissions, Hiring, Retention, and Promotion: Mechanisms of Diversity, Equity, Inclusion, and Belonging}
+    {Erin K. Chiou, Richard J. Holden, \me, Yuliana Flores, and Rod D. Roscoe}
+    {\uwbadge{HFES '22}}{Atlanta}}
 
 \section{Teaching}
 
@@ -609,7 +618,7 @@
 \uwexpentry{Inclusive and Accessible Design}{Wi23}
   {Guided students through designing for users with disabilities such as vision, hearing, mobility, or invisible disabilities, and developed guest lectures on recognizing privilege within design spaces and working with communities one does not identify with. 
 }
-
+\newpage
 \uwexpentry{Introduction to Inclusive Design}{Su21}
   {Demonstrated techniques of accessible design through real-world examples and case studies, mentored students in building designer practices to foreground accessibility in their work, and organized in-class discussions on accessibility-related content. 
 }
@@ -650,7 +659,7 @@
 \uwrow{2024}{Panelist, Research \& Data Science in Fandom}{Geek Girl Con}
 
 \vspace{8pt}
-\newpage
+
 \noindent\sectionpill{Guest Lectures}\vspace{3pt}
 
 \uwrow{2026}{Bias against Marginalized Populations in AI Systems}{INFO 200}
@@ -748,7 +757,7 @@
     \item[] Chris Sanders, University of Washington  
     
 \end{enumerate}
-\newpage
+
 \section{Service}
 
 \noindent\uwpill{University of Washington, Seattle}\vspace{3pt}
