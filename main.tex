@@ -62,6 +62,17 @@
   fontupper = \footnotesize\color{tagtxt}\bfseries
 }
 
+\newtcbox{\regbadge}{
+  nobeforeafter,
+  colback  = tagtxt,
+  colframe = blk,
+  boxrule  = 1pt,
+  arc      = 3pt,
+  top      = 1.5pt, bottom = 1.5pt,
+  left     = 4pt,   right  = 4pt,
+  fontupper = \scriptsize\color{blk}\bfseries
+}
+
 \newtcbox{\uncbadge}{
   nobeforeafter,
   colback  = tagbg,
@@ -627,11 +638,17 @@ Doctoral Thesis: \textbf{Exploring Representational Harms of \\  Generative AI S
 
 \section{Grants and Invited Projects}
 
-\uncexpentry{International Travel in the AI Era}{Oct 2026}{Invited to supervise undergraduate-led research exploring how American travelers exploring international trips and international travelers visiting the US examine how often AI tools return accurate information from sources, including travel.state.gov, supported by a \$2000 grant as part of the Diplomacy Lab by UNC Global Studies}
+\uncexpentry{International Travel in the AI Era, \textit{US Department of State}}{Oct 2026}{Invited to supervise undergraduate-led research exploring how American travelers exploring international trips and international travelers visiting the US examine how often AI tools return accurate information from sources, including travel.state.gov, supported by a \$2000 grant as part of the Diplomacy Lab by UNC Global Studies.}
 
 \section{Teaching}
 
 \noindent\sectionpill{Instructor}\vspace{3pt}
+
+\noindent\underline{\large \textcolor{tagbg}{\textit{University of North Carolina at Chapel Hill}}}\vspace{3pt}
+
+\uncexpentry{Human Computer Interaction}{Sp26}
+    {Redeveloped a project-based course leading students through the user-centered design process, including ideation, user research, prototyping, and user testing; designed and delivered lectures on equitable practices in design.
+}
 
 \noindent\underline{\large \textcolor{uwpurple}{\textit{University of Washington, Seattle}}}\vspace{3pt}
 
@@ -660,8 +677,7 @@ Doctoral Thesis: \textbf{Exploring Representational Harms of \\  Generative AI S
 }
 
 \uwexpentry{Introduction to User-Centered Design}{Au21 -- Au22}
-  {Taught project-based courses leading students through the user-centered design process including ideation, user research, prototyping and user testing, designed and delivered lectures on equitable practices in design.}
-
+  {Taught project-based courses leading students through the user-centered design process, including ideation, user research, prototyping, and user testing; designed and delivered lectures on equitable practices in design.}
 
 \noindent\sectionpill{Teaching Assistant}\vspace{3pt}
 
@@ -674,7 +690,7 @@ Doctoral Thesis: \textbf{Exploring Representational Harms of \\  Generative AI S
 \uwexpentry{Inclusive and Accessible Design}{Wi23}
   {Guided students through designing for users with disabilities such as vision, hearing, mobility, or invisible disabilities, and developed guest lectures on recognizing privilege within design spaces and working with communities one does not identify with. 
 }
-
+\newpage
 \uwexpentry{Introduction to Inclusive Design}{Su21}
   {Demonstrated techniques of accessible design through real-world examples and case studies, mentored students in building designer practices to foreground accessibility in their work, and organized in-class discussions on accessibility-related content. 
 }
@@ -704,7 +720,7 @@ Doctoral Thesis: \textbf{Exploring Representational Harms of \\  Generative AI S
 \uwrow{2023}{Teaching Award}{\hfill UW College of Engineering}
 \umnrow{2016-20}{Gold Global Excellence Scholarship (\$8.4k/year)}{University of Minnesota}
 \umnrow{2016}{Undergraduate Research Scholarship (\$2k)}{University of Minnesota}
-
+\newpage
 \section{Invited Talks}
 
 \noindent\sectionpill{Speaking Engagements}\vspace{3pt}
@@ -722,6 +738,7 @@ Doctoral Thesis: \textbf{Exploring Representational Harms of \\  Generative AI S
 
 \noindent\sectionpill{Guest Lectures}\vspace{3pt}
 
+\uncrow{2026}{Reading Datasets for Training AI Systems}{DATA 130}
 \uncrow{2026}{Bias and Harm in AI Systems}{INLS 777}
 \uwrow{2026}{Bias against Marginalized Populations in AI Systems}{INFO 200}
 \uwrow{2025}{Sources of Bias in AI Systems}{INFO 200}
@@ -734,11 +751,14 @@ Doctoral Thesis: \textbf{Exploring Representational Harms of \\  Generative AI S
 \uwrow{2025}{Curriculum Consultant, International Academic Digital Skills}{DEPA, Thailand}
 \uwrow{2024}{Curriculum Consultant}{Digital4Good X ICanHelp}
 \uwrow{2024}{Reviewer, International AI Safety Report}{AI Safety Institute}
+\uwrow{2024}{Panelist, Accessible Teaching Strategies}{UW Center for Teaching and Learning}
+\uwrow{2023-24}{Panelist, TAing at the University of Washington}{UW Center for Teaching and Learning}
 
+\newpage
 \section{Media Mentions}
 
 \uwrow{2026}{\href{https://www.cnet.com/tech/services-and-software/elon-musks-grok-faces-backlash-over-nonconsensual-ai-altered-images/}{Elon Musk's Grok Faces Backlash Over Nonconsensual \\ AI-Altered Images}}{CNET}
-\uwrow{2025}{\href{https://www-technologyreview-com.cdn.ampproject.org/c/s/www.technologyreview.com/2025/10/01/1124621/openai-india-caste-bias/amp/}{OpenAI is huge in India. Its models are steeped in caste bias}}{MIT Technology Review}
+\uwrow{2025}{\href{https://www-technologyreview-com.cdn.ampproject.org/c/s/www.technologyreview.com/2025/10/01/1124621/openai-india-caste-bias/amp/}{OpenAI is huge in India. Its models are steeped in caste bias.}}{MIT Technology Review}
 \uwrow{2024}{\href{https://www.lgbtqnation.com/2024/05/ai-facial-recognition-technology-could-have-devastating-consequences-for-trans-folks/}{AI facial recognition technology could have devastating \\ consequences for trans folks}}{LGBTQ Nation}
 \uwrow{2024}{\href{https://www.404media.co/uk-gender-affirming-care-ai-generated-children/}{Review Used By UK to Limit Gender Affirming Care Uses Images of AI-Generated Kids}}{404Media}
 \uwrow{2024}{\href{https://www.wired.com/story/artificial-intelligence-lgbtq-representation-openai-sora/}{Here’s How Generative AI Depicts Queer People}}{WIRED}
@@ -754,36 +774,14 @@ Doctoral Thesis: \textbf{Exploring Representational Harms of \\  Generative AI S
 \uwrow{2023}{\href{https://www.geekwire.com/2023/ai-imaging-software-generates-a-gallery-of-stereotypes-say-univ-of-washington-researchers/}{AI imaging software generates a gallery of stereotypes, \\ say Univ. of Washington researchers.}}{GeekWire}
 \uwrow{2023}{\href{https://ischool.uw.edu/news/2023/10/students-investigate-how-artificial-intelligence-perpetuates-biases?fbclid=IwAR2nyV0_RiuBVnutpGhnZucRD6e837bVYqHUDzKWWB4iV8KHhj6ltDHDF4A}{Students Investigate How Artificial Intelligence \\ Perpetuates Biases}}{\hfill University of Washington, \newline Information School Newsletter}
 \uwrow{2023}{\href{https://restofworld.org/2023/chatgpt-problems-global-language-testing/}{We tested ChatGPT in Bengali, Kurdish, and Tamil. \\It failed.}}{Rest of World}
-
-% \section{Leadership}
-% \expentry{Co-Leader, Accessible Teaching Strategies}{May 2024}
-%   {University of Washington}{}{
-%   \item Demonstrated best practices for adapting courses to be accessible to disabled students, such as practicing HyFlex learning and accommodating blind and low-vision students in traditionally visual courses.
-% }
-
-\section{Reviewing}
-
-\uwrow{2026}{AAAI Annual Conference on AI, Ethics and Society}{Program Committee}
-\uwrow{2026}{ACM Journal on Responsible Computing}{Program Committee}
-\uwrow{2026}{ACM Conference on Fairness, Accountability \\ and Transparency}{Program Committee}
-\uwrow{2025}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
-\uwrow{2025}{AAAI/ACM Annual Conference on AI, Ethics and Society}{Program Committee}
-\uwrow{2025}{Annual Conference, American Society of \\ Engineering Education}{Program Committee}
-\uwrow{2025}{ACM Conference on Fairness, Accountability \\ and Transparency}{Program Committee}
-\uwrow{2024}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
-\uwrow{2024}{AAAI/ACM Annual Conference on AI, Ethics and Society}{Program Committee}
-\uwrow{2024}{Annual Conference, Association of Internet Researchers}{Program Committee}
-\uwrow{2024}{Annual Conference, American Society of \\ Engineering Education}{Program Committee}
-\uwrow{2024}{ACM Conference on Designing Interactive Systems}{Program Committee}
-\uwrow{2024}{ACM Conference on Fairness, Accountability \\ and Transparency}{Program Committee}
-\uwrow{2023}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
-\uwrow{2023}{ACM Conference on Fairness, Accountability \\ and Transparency}{Program Committee}
-\uwrow{2023}{ACM Conference on Designing Interactive Systems}{Program Committee}
-\uwrow{2022}{ACM SIGCHI Conference on Computer-Supported \\ Cooperative Work \& Social Computing}{Program Committee}
 \newpage
+
 \section{Mentorship}
-% \noindent\sectionpill{Ph.D. Student Advisees}\vspace{3pt}
-% \vspace{5pt}
+\noindent\sectionpill{Ph.D. Students, Doctoral Committees}\vspace{3pt}
+\begin{enumerate}
+    \item[] Shweta Sisodiya, University of California at Santa Cruz
+\end{enumerate}
+\vspace{5pt}
 
 \noindent\sectionpill{Ph.D. Students}\vspace{3pt}
 \begin{enumerate}
@@ -826,7 +824,7 @@ Doctoral Thesis: \textbf{Exploring Representational Harms of \\  Generative AI S
     \item[] Chris Sanders, University of Washington  
         
 \end{enumerate}
-\newpage
+
 \section{Service}
 
 \noindent\uncpill{Data and Information Sciences, University of North Carolina at Chapel Hill}\vspace{3pt}
@@ -844,10 +842,32 @@ Doctoral Thesis: \textbf{Exploring Representational Harms of \\  Generative AI S
 \noindent \raisebox{-2pt}{\uwbadge{2021-25}}\hspace{5pt} Chair's Advisory Board \par
 \noindent \raisebox{-2pt}{\uwbadge{2020-22}}\hspace{5pt} Sustained Dialogue Moderators Manager \par
 
-% \vspace{5pt}
-% \noindent\umnpill{University of Minnesota, Twin Cities}\vspace{3pt}
+\vspace{5pt}
+\noindent\sectionpill{Volunteering}\vspace{3pt}
 
-% \noindent \raisebox{-2pt}{\umnbadge{2018-20}}\hspace{5pt} Vice President, Model United Nations Club\\
+\noindent \raisebox{-2pt}{\regbadge{2026--}}\hspace{5pt} Instructor, Community Workshop Series \par
+\vspace{5pt}
+
+\section{Reviewing}
+
+\uwrow{2026}{AAAI Annual Conference on AI, Ethics and Society}{Program Committee}
+\uwrow{2026}{ACM Journal on Responsible Computing}{Program Committee}
+\uwrow{2026}{ACM Conference on Fairness, Accountability \\ and Transparency}{Program Committee}
+\uwrow{2025}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
+\uwrow{2025}{AAAI/ACM Annual Conference on AI, Ethics and Society}{Program Committee}
+\uwrow{2025}{Annual Conference, American Society of \\ Engineering Education}{Program Committee}
+\uwrow{2025}{ACM Conference on Fairness, Accountability \\ and Transparency}{Program Committee}
+\uwrow{2024}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
+\uwrow{2024}{AAAI/ACM Annual Conference on AI, Ethics and Society}{Program Committee}
+\uwrow{2024}{Annual Conference, Association of Internet Researchers}{Program Committee}
+\uwrow{2024}{Annual Conference, American Society of \\ Engineering Education}{Program Committee}
+\uwrow{2024}{ACM Conference on Designing Interactive Systems}{Program Committee}
+\uwrow{2024}{ACM Conference on Fairness, Accountability \\ and Transparency}{Program Committee}
+\uwrow{2023}{CHI Conference on Human Factors in Computing Systems}{Program Committee}
+\uwrow{2023}{ACM Conference on Fairness, Accountability \\ and Transparency}{Program Committee}
+\uwrow{2023}{ACM Conference on Designing Interactive Systems}{Program Committee}
+\uwrow{2022}{ACM SIGCHI Conference on Computer-Supported \\ Cooperative Work \& Social Computing}{Program Committee}
+
 
 
 \vfill
