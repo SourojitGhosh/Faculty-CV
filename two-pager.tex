@@ -1,0 +1,198 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage[letterpaper, left=1.5cm, right=1.5cm, top=1.6cm, bottom=1.6cm]{geometry}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{tcolorbox}
+\usepackage{parskip}
+
+\definecolor{accentblue}{HTML}{13294B} 
+\definecolor{umnmaroon}{HTML}{7a0019}         
+\definecolor{uwpurple}{HTML}{39275B}         
+\definecolor{tagbg}{HTML}{13294B}             
+\definecolor{tagtxt}{HTML}{FFFFFF}    
+\definecolor{blk}{HTML}{000000}  
+\definecolor{lightgray}{gray}{0.40}
+
+\hypersetup{
+  colorlinks = true,
+  linkcolor = accentblue,
+  urlcolor = accentblue,
+  pdfauthor  = {Sourojit Ghosh},
+  pdftitle   = {Sourojit Ghosh - Resume}
+}
+
+\titleformat{\section}
+  {\large\bfseries\color{accentblue}}
+  {}{0pt}{}
+  [\vspace{-6pt}\rule{\linewidth}{0.8pt}\vspace{-2pt}]
+
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\newtcbox{\cvtag}{
+  nobeforeafter,
+  colback  = tagbg,
+  colframe = tagbg,
+  boxrule  = 0pt,
+  arc      = 2pt,
+  top      = 1pt, bottom = 1pt,
+  left     = 4pt, right  = 4pt,
+  fontupper = \scriptsize\color{tagtxt}\bfseries
+}
+
+\newtcbox{\venuebadge}{
+  nobeforeafter,
+  colback  = uwpurple,
+  colframe = uwpurple,
+  boxrule  = 0pt,
+  arc      = 2pt,
+  top      = 1pt, bottom = 1pt,
+  left     = 3pt, right  = 3pt,
+  fontupper = \tiny\color{tagtxt}\bfseries
+}
+
+\newcommand{\me}{\textbf{Sourojit Ghosh}}
+
+\newcommand{\pubitem}[4]{%
+  \stepcounter{totalpubs}
+  \noindent
+  \begin{minipage}[t]{0.82\linewidth}
+    \numdef\thispubnum{\maxpubcount + 1 - \value{totalpubs}}
+    \large{#1}\\
+    \textit{\small #2}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.14\linewidth}\raggedleft
+    \raisebox{-5pt}{#3}\\[2pt]
+    \textcolor{lightgray}{\footnotesize #4}
+  \end{minipage}
+  \vspace{5pt}
+}
+
+\newcommand{\expheader}[4]{%
+  \noindent\textbf{\large #1} \hfill \textbf{#2}\\
+  \textit{#3} \hfill \textcolor{lightgray}{\small\textit{#4}}\par\vspace{2pt}
+}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\pagestyle{empty}
+
+% --- HEADER ---
+\begin{center}
+  {\huge\bfseries Sourojit Ghosh}\\[3pt]
+  
+  {\small \href{https://sourojitghosh.github.io/}{Personal Website} $\cdot$ \href{https://sourojitghosh.github.io/unseen-lab/}{Unseen Lab} $\cdot$ \href{https://scholar.google.com/citations?user=fNxrh48AAAAJ&hl=en&authuser=2}{Google Scholar}} $\cdot$ \href{mailto:ghosh100@unc.edu}{ghosh100@unc.edu}\\[5pt]
+\end{center}
+
+\vspace{-4pt}
+
+\section{Executive Summary}
+Interdisciplinary researcher and educator investigating representational harms, algorithmic bias, and sociotechnical governance of Generative AI. Authored 30+ peer-reviewed papers across premier HCI and AI ethics venues, with extensive features in international media outlets, and award-winning pedagogy.
+
+% --- EDUCATION ---
+\section{Education}
+
+\expheader{University of Washington}{Seattle, WA}{Ph.D. in Human-Centered Design and Engineering}{2020 -- 2026}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=1pt, parsep=1pt]
+  \item \textbf{Dissertation:} \textit{Exploring Representational Harms of Generative AI Systems upon Historically Marginalized Populations often Overlooked in Fairness Research} (Advisor: Dr. Cecilia Aragon).
+\end{itemize}
+
+\expheader{University of Washington}{Seattle, WA}{M.S. in Human-Centered Design and Engineering}{2020 -- 2022}
+\expheader{University of Minnesota, Twin Cities}{Minneapolis, MN}{B.Sc. in Computer Science (Minor in Creative Writing)}{2016 -- 2020}
+
+\section{Academic Appointments}
+
+\expheader{University of North Carolina at Chapel Hill}{Chapel Hill, NC}{Assistant Professor, School of Data and Information Sciences}{2026 -- Present}
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=1pt]
+  \item Faculty Researcher at the Center for Information, Technology, and Public Life (CITAP).
+  \item Director of the Unseen AI Lab, researching inclusive AI auditing and human-centered safety frameworks.
+\end{itemize}
+
+\expheader{Pluralistic AI Lab, University of Connecticut}{Remote}{Affiliate Researcher}{2026 -- Present}
+
+\section{Selected Premier Publications}
+\textit{\small Selected from 30+ publications across FAccT, AIES, CHI, EMNLP, and CSCW. *Denotes equal contribution.}
+
+\vspace{4pt}
+
+\pubitem{Generative AI and Academic Self-Confidence: Understanding How AI Tools Influence English Learning Motivation Among Multilingual and International Students}
+{Sehrish Daud and \me*}
+{AIES '26}{}
+
+\pubitem{Beyond Detection: Governing GenAI in Academic Peer Review as a \\ Sociotechnical Challenge}
+{Tatiana Chakravorti, Pranav Narayanan Venkit, \me*, and Sarah Rajtmajer}
+{AIES '26}{}
+
+\pubitem{What if AI systems weren't Chatbots?}
+{\me*, Pranav Narayanan Venkit, Sanjana Gautam, and Avijit Ghosh}
+{FAccT '26}{}
+
+\pubitem{Compounding Disadvantage: Auditing Intersectional Bias in LLM-Generated \\ Explanations Across Indian and American STEM Education}
+{Amogh Gupta, Niharika Patil, \me, and Snehalkumar Gaikwad}
+{FAccT '26}{}
+
+\pubitem{Interpretations, Representations, and Stereotypes of Caste within Text-to-Image Generators}
+{\me}
+{AIES '24}{}
+
+\pubitem{“Person” == Light-skinned, Western Man, and Sexualization of Women of Color: Stereotypes in Stable Diffusion}
+{\me  \vspace{0.1em} and Aylin Caliskan}
+{EMNLP '23}{}
+
+\pubitem{ChatGPT Perpetuates Gender Bias in Machine Translation and Ignores Non-Gendered Pronouns: Findings across Bengali and Five other Low-Resource Languages}
+{\me \vspace{0.1em} and Aylin Caliskan}
+{AIES '23}{}
+
+\section{Grants \& Invited Projects}
+\noindent\textbf{International Travel in the AI Era} \hfill \textcolor{lightgray}{\small \$2,000 Grant}\par
+\textit{US Department of State / UNC Global Studies Diplomacy Lab} \hfill \textit{Oct 2026}\par
+
+\noindent\textbf{Outstanding Dissertation in the Social Sciences} \hfill \textcolor{lightgray}{\small \$25,000 Fellowship}\par
+\textit{University of Washington, Seattle} \hfill \textit{Mar 2026}\par
+
+\section{Teaching \& Instructional Leadership}
+\begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=2pt]
+  \item \textbf{Human Computer Interaction} (UNC Chapel Hill, Sp26): Teaching project-based course foregrounding state-of-the-art UI/UX practices, user research, and interactive prototyping.
+  \item \textbf{Foundations of Human Centered AI} (UW Seattle, Wi26): Designed inaugural course for UW's AI Certificate program blending technical model evaluation with sociotechnical ethics.
+  \item \textbf{Human-Centeredness in Generative AI} (UW Seattle, Sp24/Au24): Created new project-driven curriculum addressing GAI ethics and safety for all user populations.
+
+\end{itemize}
+
+\section{Mentorship \& Research Leadership}
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=1pt]
+  \item \textbf{Ph.D. \& Graduate Advisees:} Mentoring Ph.D. students across UNC Chapel Hill, UW, and UC Santa Cruz (including Vladimir Martirosyan, Shweta Sisodiya, Nina Lutz, Kyra Wilson, Murtaza Ali).
+  \item \textbf{Undergraduate Research Leadership:} Advised over 15 undergraduate research assistants, resulting in 8+ co-authored top-tier conference papers (CHI, AIES, ASEE, HCII).
+\end{itemize}
+
+\section{Selected Honors}
+\begin{tabularx}{\linewidth}{@{} p{0.12\linewidth} X r @{}}
+  \textbf{2026} & Award of Excellence in Leadership and Engagement & UW HCDE \\
+  \textbf{2025} & Equity \& Excellence Dissertation Award & University of Washington \\
+  \textbf{2025} & Presidential Dissertation Fellowship & University of Washington \\
+  \textbf{2024} & Husky100 (Class of 2024 Recognition) & University of Washington \\
+  \textbf{2023} & Award of Excellence in Teaching & UW College of Engineering \\
+  \textbf{2016--20} & Gold Global Excellence Scholarship (\$8.4k/yr) & University of Minnesota \\
+\end{tabularx}
+
+% --- PUBLIC IMPACT & MEDIA ---
+\section{Invited Talks, Public Service \& Media Impact}
+\begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=2pt]
+  \item \textbf{Selected Press Features:} Featured expert on AI bias in \textit{MIT Technology Review}, \textit{WIRED}, \textit{Associated Press (AP News)}, \textit{CNET}, \textit{404Media}, \textit{LGBTQ Nation}, \textit{Rest of World}, and \textit{GeekWire}.
+  \item \textbf{Key Invited Talks:} Panelist at \textit{The Hewlett Foundation} (2026), Guest Speaker for \textit{World Federation of Advertisers} (2024), and Expert Panelist on \textit{ABC's Good Morning America} (2024).
+  \item \textbf{Academic Service \& Reviewing:} Program Committee / Reviewer for \textit{ACM CHI}, \textit{ACM FAccT}, \textit{AAAI/ACM AIES}, \textit{ACM CSCW}, and \textit{ACM DIS} (2022--Present).
+\end{itemize}
+
+\end{document}
